@@ -52,7 +52,6 @@ struct TasksListView: View {
                     TaskCardView(task: task)
                         .swipeActions(edge: .leading, allowsFullSwipe: false){
                             Button {
-                                print("Complete task \(task.taskName)")
                                 task.taskIsCompleted.toggle()
                                 activeProject.updateStats()
                             } label: {
