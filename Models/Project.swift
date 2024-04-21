@@ -1,6 +1,6 @@
 //
 //  Project.swift
-//  Wagoniki
+//  Todo
 //
 //  Created by Jaromir Jagieluk on 28/10/2023.
 //
@@ -65,15 +65,15 @@ extension Project {
     
     static let sampleProjects: [Project] =
     [
-        Project(projName: "Wagoniki",
-                projDescription: "Tworzenie iOS aplikacji pomagającej w efektywnym wykonywaniu zadań.",
+        Project(projName: "Project ToDo app",
+                projDescription: "Creation of application for tasks management.",
                 priority: .high,
                 dueDate: Date(),
                 isCompleted: .notCompleted,
                 tasks: [
                     ProjectsTask(isCompleted: false,
-                                name: "Zdobyć wiedzę teoretyczną",
-                                description: "Przestudiować materiały ze strony dla Swift developerów",
+                                name: "Gather theoretical knowledge",
+                                description: "Study materials on apple page for developers",
                                 priority: .critical,
                                 estimatedImplTimeMinutes: 1200,
                                 realImplTimeMinutes: 0,
@@ -83,110 +83,16 @@ extension Project {
                                 subTask: [],
                                 subTaskUnfold: false,
                                 notes: [
-                                            TasksNote(note: "Są pewne problemy z materiałami dlatego że w najnowszej wersji Swift'a są zmiany",
+                                            TasksNote(note: "I face some problems, materials on web are a bit outdated",
                                                     author: Person(name: "Adam")
                                                    ),
-                                            TasksNote(note: "...ale jakoś powoli dajemy rade",
+                                            TasksNote(note: "...slowely going there",
                                                     author: Person(name: "Adam")
                                                    )
                                     ]
                                 )
                     ],
                 theme: .blue
-               ),
-        Project(projName: "Codzienne obowiązki",
-                projDescription: "List zadań wykonywanych codziennie.",
-                priority: .medium,
-                dueDate: Date(),
-                isCompleted: .notCompleted,
-                tasks: [
-                    ProjectsTask(
-                        isCompleted: false,
-                                 name: "Raport PW2",
-                                 description: "",
-                                 priority: .medium,
-                                 estimatedImplTimeMinutes: 60,
-                                 realImplTimeMinutes: 0,
-                                creationDate: Date(timeIntervalSinceNow: 0),
-                                 dueDate: Date(timeIntervalSinceNow: 0),
-                                 //isSubtask: false,
-                                 subTask: [],
-                                 subTaskUnfold: false,
-                                 notes: []
-                                ),
-                    ProjectsTask(
-                        isCompleted: false,
-                                 name: "Sprawdzić nowy wniosek",
-                                 description: "Sprawdzić wiosek o przygotowanie projektu",
-                                 priority: .medium,
-                                 estimatedImplTimeMinutes: 30,
-                                 realImplTimeMinutes: 0,
-                                creationDate: Date(timeIntervalSinceNow: 0),
-                                 dueDate: Date(timeIntervalSinceNow: 0),
-                                 //isSubtask: false,
-                                 subTask: [],
-                                 subTaskUnfold: false,
-                                 notes: []
-                                ),
-                    ProjectsTask(
-                        isCompleted: false,
-                                 name: "Pod projekt",
-                                 description: "Co zrobic żeby pogadać z szefem o nowym zadaniu",
-                                 priority: .medium,
-                                 estimatedImplTimeMinutes: 45,
-                                 realImplTimeMinutes: 0,
-                                 creationDate: Date(timeIntervalSinceNow: 0),
-                                 dueDate: Date(timeIntervalSinceNow: 0),
-                                 //isSubtask: true,
-                                 subTask: [
-                                    ProjectsTask(
-                                        isCompleted: false,
-                                                  name: "Pod zadanie 1",
-                                                  description: "Część większego projektu",
-                                                  priority: .medium,
-                                                  estimatedImplTimeMinutes: 60,
-                                                  realImplTimeMinutes: 0,
-                                                creationDate: Date(timeIntervalSinceNow: 0),
-                                                  dueDate: Date(timeIntervalSinceNow: 0),
-                                                  //isSubtask: false,
-                                                  subTask: [],
-                                                  subTaskUnfold: false,
-                                                  notes: []
-                                                 ),
-                                     ProjectsTask(
-                                                  isCompleted: false,
-                                                  name: "Pod zadanie 2",
-                                                  description: "Podzadanie z większego projektu",
-                                                  priority: .medium,
-                                                  estimatedImplTimeMinutes: 30,
-                                                  realImplTimeMinutes: 0,
-                                                  creationDate: Date(timeIntervalSinceNow: 0),
-                                                  dueDate: Date(timeIntervalSinceNow: 0),
-                                                  //isSubtask: false,
-                                                  subTask: [],
-                                                  subTaskUnfold: false,
-                                                  notes: []
-                                                 )
-                                 ],
-                                 subTaskUnfold: false,
-                                 notes: []
-                                ),
-                    ProjectsTask(
-                        isCompleted: true,
-                                 name: "Z3",
-                                 description: "Zadanie główne 3ie",
-                                 priority: .medium,
-                                 estimatedImplTimeMinutes: 30,
-                                 realImplTimeMinutes: 0,
-                            creationDate: Date(timeIntervalSinceNow: 0),
-                                 dueDate: Date(timeIntervalSinceNow: 0),
-                                 //isSubtask: false,
-                                 subTask: [],
-                                subTaskUnfold: false,
-                                 notes: []
-                                )
-                    ],
-                theme: .yellow
-        )
+               )
     ]
 }

@@ -1,6 +1,6 @@
 //
 //  ProjectCardView.swift
-//  Wagoniki
+//  Todo
 //
 //  Created by Jaromir Jagieluk on 29/10/2023.
 //
@@ -32,7 +32,7 @@ struct ProjectCardView: View {
 }
 
 #Preview {
-    let projectCardPreview = ProjectCardView(project: Project.sampleProjects[1])
+    let projectCardPreview = ProjectCardView(project: Project.sampleProjects[0])
         .background(.green)
     return projectCardPreview
 }

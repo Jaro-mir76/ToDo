@@ -1,6 +1,6 @@
 //
 //  TaskCardView.swift
-//  Wagoniki
+//  Todo
 //
 //  Created by Jaromir Jagieluk on 01/11/2023.
 //
@@ -56,5 +56,5 @@ struct TaskCardView: View {
 }
 
 #Preview {
-    return TaskCardView(task: Project.sampleProjects[1].tasks[2], isSubGroup: true)
+    return TaskCardView(task: Project.sampleProjects[0].tasks[0], isSubGroup: true)
 }

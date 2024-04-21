@@ -1,6 +1,6 @@
 //
 //  ErrorView.swift
-//  Wagoniki
+//  Todo
 //
 //  Created by Jaromir Jagieluk on 11/02/2024.
 //
@@ -14,7 +14,7 @@ struct ErrorView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Ups... errorek się stał ;)")
+                Text("Ups... small error happened ;)")
                     .font(.title)
                     .padding(.bottom)
                 Text(errorWrapper.error.localizedDescription)
@@ -44,7 +44,7 @@ struct ErrorView: View {
     }
     
     var wrapper: ErrorWraper {
-        ErrorWraper(error: SampleError.errorRequired, guidance: "Spoko nic się nie dzieje, możesz iść dalej ;)")
+        ErrorWraper(error: SampleError.errorRequired, guidance: "It's ok, we can continue ;)")
     }
     
     return ErrorView(errorWrapper: wrapper)

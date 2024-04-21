@@ -1,8 +1,8 @@
 //
-//  UTTypeWagoniki.swift
-//  Wagoniki
+//  UTTypeToDo.swift
+//  Todo
 //
-//  Created by Jaromir Jagieluk on 05/03/2024.
+//  Created by Jaromir Jagieluk on 21/04/2024.
 //
 
 import UniformTypeIdentifiers

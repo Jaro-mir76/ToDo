@@ -1,6 +1,6 @@
 //
 //  Person.swift
-//  Wagoniki
+//  Todo
 //
 //  Created by Jaromir Jagieluk on 29/10/2023.
 //

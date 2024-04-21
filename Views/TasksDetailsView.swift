@@ -1,6 +1,6 @@
 //
 //  TasksDetailsView.swift
-//  Wagoniki
+//  Todo
 //
 //  Created by Jaromir Jagieluk on 01/11/2023.
 //
@@ -143,13 +143,6 @@ struct TasksDetailsView: View {
                                 Button("Add") {
                                     newtask.project = activeProject
                                     newtask.parentTask = parentTask
-                                    
-                                    let _ = print("TasksDetailsView Add Button - active Project variable: \(String(describing: activeProject.projName))")
-                                    let _ = print("TasksDetailsView add Button - Parent task name context: \(String(describing: parentTask?.taskName))")
-                                    let _ = print("TasksDetailsView add Button - newtask.project: \(String(describing: newtask.project?.projName))")
-                                    let _ = print("TasksDetailsView add Button - newtask.parentTask?.taskName: \(String(describing: newtask.parentTask?.taskName))")
-                                    let _ = print("TasksDetailsView add Button - newtask.taskName: \(String(describing: newtask.taskName))")
-                                    
                                     task.subTask.append(newtask)
                                     activeProject.updateStats()
                                     isPresentingNewTask = false
@@ -163,5 +156,5 @@ struct TasksDetailsView: View {
 }
 
 #Preview {
-    return TasksDetailsView(activeProject: Project.sampleProjects[0], parentTask: ProjectsTask.emptyTask ,task: (Project.sampleProjects[1].tasks[2]))
+    return TasksDetailsView(activeProject: Project.sampleProjects[0], parentTask: ProjectsTask.emptyTask ,task: (Project.sampleProjects[0].tasks[0]))
 }

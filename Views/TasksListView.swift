@@ -1,6 +1,6 @@
 //
 //  TasksListView.swift
-//  Wagoniki
+//  Todo
 //
 //  Created by Jaromir Jagieluk on 10/12/2023.
 //
@@ -15,7 +15,7 @@ struct TasksListView: View {
     private var tasks: [ProjectsTask]
     
     init(activeProject: Project, parentTask: ProjectsTask?) {
-        //let projectId = activeProject.id
+        //let projectId = activeProject.id      //left to check later @Query etc.
         self.activeProject = activeProject
         //let parentTaskId = parentTask?.id
         self.parentTask = parentTask
@@ -76,5 +76,5 @@ struct TasksListView: View {
 }
 
 #Preview {
-    TasksListView(activeProject: Project.sampleProjects[1] ,parentTask: ProjectsTask.emptyTask)
+    TasksListView(activeProject: Project.sampleProjects[0] ,parentTask: ProjectsTask.emptyTask)
 }

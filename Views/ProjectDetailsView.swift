@@ -1,6 +1,6 @@
 //
 //  ProjectDetailsView.swift
-//  Wagoniki
+//  Todo
 //
 //  Created by Jaromir Jagieluk on 01/11/2023.
 //

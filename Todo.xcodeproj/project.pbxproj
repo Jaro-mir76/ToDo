@@ -20,7 +20,6 @@
 		4A6F36972BD57D5B00A41477 /* SelectedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36712BD57D5B00A41477 /* SelectedProject.swift */; };
 		4A6F36982BD57D5B00A41477 /* TasksNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36722BD57D5B00A41477 /* TasksNote.swift */; };
 		4A6F36992BD57D5B00A41477 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36732BD57D5B00A41477 /* Theme.swift */; };
-		4A6F369A2BD57D5B00A41477 /* WagonikiStacja.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36742BD57D5B00A41477 /* WagonikiStacja.swift */; };
 		4A6F369C2BD57D5B00A41477 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36772BD57D5B00A41477 /* ErrorView.swift */; };
 		4A6F369D2BD57D5B00A41477 /* NewProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36782BD57D5B00A41477 /* NewProjectView.swift */; };
 		4A6F369E2BD57D5B00A41477 /* NotesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36792BD57D5B00A41477 /* NotesCardView.swift */; };
@@ -39,8 +38,7 @@
 		4A6F36AB2BD57D5B00A41477 /* ThemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36862BD57D5B00A41477 /* ThemePicker.swift */; };
 		4A6F36AC2BD57D5B00A41477 /* ThemeViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36872BD57D5B00A41477 /* ThemeViewer.swift */; };
 		4A6F36AD2BD57D5B00A41477 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36882BD57D5B00A41477 /* TrailingIconLabelStyle.swift */; };
-		4A6F36AE2BD57D5B00A41477 /* UTTypeWagoniki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F368A2BD57D5B00A41477 /* UTTypeWagoniki.swift */; };
-		4A6F36AF2BD57D5B00A41477 /* UTTypeWagoniki.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F368B2BD57D5B00A41477 /* UTTypeWagoniki.xcdatamodeld */; };
+		4A6F36B22BD599B800A41477 /* UTTypeToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36B12BD599B800A41477 /* UTTypeToDo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +56,6 @@
 		4A6F36712BD57D5B00A41477 /* SelectedProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedProject.swift; sourceTree = "<group>"; };
 		4A6F36722BD57D5B00A41477 /* TasksNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksNote.swift; sourceTree = "<group>"; };
 		4A6F36732BD57D5B00A41477 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		4A6F36742BD57D5B00A41477 /* WagonikiStacja.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WagonikiStacja.swift; sourceTree = "<group>"; };
 		4A6F36772BD57D5B00A41477 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		4A6F36782BD57D5B00A41477 /* NewProjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewProjectView.swift; sourceTree = "<group>"; };
 		4A6F36792BD57D5B00A41477 /* NotesCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesCardView.swift; sourceTree = "<group>"; };
@@ -77,9 +74,8 @@
 		4A6F36862BD57D5B00A41477 /* ThemePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemePicker.swift; sourceTree = "<group>"; };
 		4A6F36872BD57D5B00A41477 /* ThemeViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeViewer.swift; sourceTree = "<group>"; };
 		4A6F36882BD57D5B00A41477 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
-		4A6F368A2BD57D5B00A41477 /* UTTypeWagoniki.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTTypeWagoniki.swift; sourceTree = "<group>"; };
-		4A6F368D2BD57D5B00A41477 /* UTTypeWagoniki.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UTTypeWagoniki.xcdatamodel; sourceTree = "<group>"; };
 		4A6F36B02BD57E5D00A41477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Todo/Info.plist; sourceTree = "<group>"; };
+		4A6F36B12BD599B800A41477 /* UTTypeToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTTypeToDo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +124,6 @@
 				4A6F36712BD57D5B00A41477 /* SelectedProject.swift */,
 				4A6F36722BD57D5B00A41477 /* TasksNote.swift */,
 				4A6F36732BD57D5B00A41477 /* Theme.swift */,
-				4A6F36742BD57D5B00A41477 /* WagonikiStacja.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,8 +156,7 @@
 		4A6F368C2BD57D5B00A41477 /* Additional */ = {
 			isa = PBXGroup;
 			children = (
-				4A6F368A2BD57D5B00A41477 /* UTTypeWagoniki.swift */,
-				4A6F368B2BD57D5B00A41477 /* UTTypeWagoniki.xcdatamodeld */,
+				4A6F36B12BD599B800A41477 /* UTTypeToDo.swift */,
 			);
 			path = Additional;
 			sourceTree = "<group>";
@@ -239,6 +233,7 @@
 				4A6F36922BD57D5B00A41477 /* Person.swift in Sources */,
 				4A6F36A02BD57D5B00A41477 /* PriorityView.swift in Sources */,
 				4A1C2ABE2BD45B2100820D46 /* TodoApp.swift in Sources */,
+				4A6F36B22BD599B800A41477 /* UTTypeToDo.swift in Sources */,
 				4A6F36972BD57D5B00A41477 /* SelectedProject.swift in Sources */,
 				4A6F36A12BD57D5B00A41477 /* ProjectCardView.swift in Sources */,
 				4A6F368F2BD57D5B00A41477 /* isCompleted.swift in Sources */,
@@ -246,7 +241,6 @@
 				4A6F36992BD57D5B00A41477 /* Theme.swift in Sources */,
 				4A6F36A92BD57D5B00A41477 /* TasksListView.swift in Sources */,
 				4A6F36AD2BD57D5B00A41477 /* TrailingIconLabelStyle.swift in Sources */,
-				4A6F36AE2BD57D5B00A41477 /* UTTypeWagoniki.swift in Sources */,
 				4A6F36942BD57D5B00A41477 /* Priority.swift in Sources */,
 				4A6F368E2BD57D5B00A41477 /* ErrorWraper.swift in Sources */,
 				4A6F36A72BD57D5B00A41477 /* TasksDetailsView.swift in Sources */,
@@ -258,13 +252,11 @@
 				4A6F36A32BD57D5B00A41477 /* ProjectEditView.swift in Sources */,
 				4A6F36902BD57D5B00A41477 /* Note.swift in Sources */,
 				4A6F36982BD57D5B00A41477 /* TasksNote.swift in Sources */,
-				4A6F36AF2BD57D5B00A41477 /* UTTypeWagoniki.xcdatamodeld in Sources */,
 				4A6F36A52BD57D5B00A41477 /* SubListUnfold.swift in Sources */,
 				4A6F36A42BD57D5B00A41477 /* ProjectsView.swift in Sources */,
 				4A6F369F2BD57D5B00A41477 /* PriorityPicker.swift in Sources */,
 				4A6F36AB2BD57D5B00A41477 /* ThemePicker.swift in Sources */,
 				4A6F36AA2BD57D5B00A41477 /* TaskStatusButton.swift in Sources */,
-				4A6F369A2BD57D5B00A41477 /* WagonikiStacja.swift in Sources */,
 				4A6F36A22BD57D5B00A41477 /* ProjectDetailsView.swift in Sources */,
 				4A6F36952BD57D5B00A41477 /* Project.swift in Sources */,
 				4A6F369C2BD57D5B00A41477 /* ErrorView.swift in Sources */,
@@ -476,20 +468,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		4A6F368B2BD57D5B00A41477 /* UTTypeWagoniki.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4A6F368D2BD57D5B00A41477 /* UTTypeWagoniki.xcdatamodel */,
-			);
-			currentVersion = 4A6F368D2BD57D5B00A41477 /* UTTypeWagoniki.xcdatamodel */;
-			name = UTTypeWagoniki.xcdatamodeld;
-			path = /Users/jaro/Warsztat/Swift/ToDo/Additional/UTTypeWagoniki.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 4A1C2AB22BD45B2100820D46 /* Project object */;
 }
