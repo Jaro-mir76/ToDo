@@ -7,17 +7,13 @@
 
 import Foundation
 
-enum Priority: String, CaseIterable, Identifiable {
+enum Priority: String, CaseIterable, Identifiable, Codable {
     
     case critical = "Critical"
     case high = "High"
     case medium = "Medium"
     case low = "Low"
     case dontCare = "Don't care"
-    
-    /*var name: String{
-        rawValue
-    }*/
     
     var id: String {
         rawValue

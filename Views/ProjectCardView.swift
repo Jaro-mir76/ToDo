@@ -12,7 +12,7 @@ struct ProjectCardView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(project.name)
+            Text(project.projName)
                 .font(.headline)
             Spacer()
             HStack{
@@ -20,16 +20,15 @@ struct ProjectCardView: View {
                 Text(project.priority.rawValue)
                 Spacer()
                 Label("", systemImage: "checklist")
-
-                Label("\(project.tasksOpened())", systemImage: "circle")
-                    .labelStyle(.trailingIcon)
-                Label("\(project.tasksClosed())", systemImage: "checkmark.circle")
-                    .labelStyle(.trailingIcon)
+                Text("\(project.tasksCompleted)")
+                Text("/")
+                Text("\(project.tasksCount)")
             }
-            //.font(.caption)
         }
         .foregroundColor(project.theme.accentColor)
+        .onAppear(perform: {project.updateStats()})
     }
+        
 }
 
 #Preview {

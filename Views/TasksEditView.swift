@@ -14,15 +14,13 @@ struct TasksEditView: View {
         Form{
             Section(header: Text("Tasks details")){
                 VStack{
-                    TextField("Tasks name", text: $task.name)
-                    TextField("Tasks description", text: $task.description, axis: .vertical)
+                    TextField("Tasks name", text: $task.taskName)
+                    TextField("Tasks description", text: $task.taskDescryption, axis: .vertical)
                         .lineLimit(5...10)
                     PriorityPicker(selection: $task.priority)
-                    //Due date
                     HStack{
                         Text("Due date")
                         Spacer()
-                      //  Text(task.dueDate.formatted(date: .abbreviated, time: .omitted).description)
                     }
                     DatePicker(
                             "Due Date",

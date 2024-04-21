@@ -6,89 +6,70 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Project: Identifiable{
-    let id: UUID
-    //var subProject: Bool
-    var name: String
-    var description: String
+@Model
+class Project {
+    @Attribute(.unique) let id: UUID
+    var projName: String
+    var projDescription: String
     var priority: Priority
     var dueDate: Date
-    var isCompleted: Bool
-    var tasks: [ProjectsTask]
+    var isCompleted: isCompleted
+    @Relationship(deleteRule: .cascade, inverse: \ProjectsTask.project) var tasks: [ProjectsTask]
     var theme: Theme
+    var tasksCount: Int
+    var tasksCompleted: Int
     
-    func tasksOpened() -> Int {
-        //var tasks = tasks
-        var countTasksOpened: Int = 0
-        for ta in tasks {
-            if !ta.subTask.isEmpty {
-                tasksOpened(t: ta.subTask)
-            } else if !ta.isCompleted{
-                countTasksOpened += 1
-            }
-        }
-        func tasksOpened(t: [ProjectsTask]){
-            for ta in t {
-                if !ta.subTask.isEmpty {
-                    tasksOpened(t: ta.subTask)
-                } else if !ta.isCompleted{
-                    countTasksOpened += 1
-                }
-            }
-            return
-        }
-        return countTasksOpened
-    }
-    
-    func tasksClosed() -> Int {
-        //var tasks = subTask
-        var countTasksClosed: Int = 0
-        for ta in tasks {
-            if !ta.subTask.isEmpty {
-                tasksOpened(t: ta.subTask)
-            } else if ta.isCompleted{
-                countTasksClosed += 1
-            }
-        }
-        func tasksOpened(t: [ProjectsTask]){
-            for ta in t {
-                if !ta.subTask.isEmpty {
-                    tasksOpened(t: ta.subTask)
-                } else if ta.isCompleted{
-                    countTasksClosed += 1
-                }
-            }
-            return
-        }
-        return countTasksClosed
-    }
-    
-    init(id: UUID = UUID(), name: String, description: String, priority: Priority, dueDate: Date, isCompleted: Bool, tasks: [ProjectsTask], theme: Theme) {
+    init(id: UUID = UUID(), projName: String, projDescription: String, priority: Priority, dueDate: Date, isCompleted: isCompleted, tasks: [ProjectsTask] = [], theme: Theme) {
         self.id = id
-        //self.subProject = subProject
-        self.name = name
-        self.description = description
+        self.projName = projName
+        self.projDescription = projDescription
         self.priority = priority
         self.dueDate = dueDate
         self.isCompleted = isCompleted
         self.tasks = tasks
         self.theme = theme
+        self.tasksCount = 0
+        self.tasksCompleted = 0
+        updateStats()
+    }
+    
+    func updateStats(){
+        tasksCount = 0
+        tasksCompleted = 0
+        if !tasks.isEmpty {
+            countTasks(tasks.filter({$0.parentTask == nil}))
+        }
+    }
+    
+    func countTasks(_ projectTasks: [ProjectsTask]) -> () {
+        for ta in projectTasks{
+            if !ta.subTask.isEmpty{
+                ta.updateStats()
+                countTasks(ta.subTask)
+            } else {
+                tasksCount += 1
+                if ta.taskIsCompleted {
+                    tasksCompleted += 1
+                }
+            }
+        }
     }
 }
 
 extension Project {
     static var emptyProject: Project{
-        Project(name: "", description: "", priority: .dontCare, dueDate: Date(), isCompleted: false, tasks: [], theme: .blue)
+        Project(projName: "", projDescription: "", priority: .dontCare, dueDate: Date(), isCompleted: .notCompleted, tasks: [], theme: .blue)
     }
     
     static let sampleProjects: [Project] =
     [
-        Project(name: "Wagoniki",
-                description: "Tworzenie iOS aplikacji pomagającej w efektywnym wykonywaniu zadań.",
+        Project(projName: "Wagoniki",
+                projDescription: "Tworzenie iOS aplikacji pomagającej w efektywnym wykonywaniu zadań.",
                 priority: .high,
                 dueDate: Date(),
-                isCompleted: false,
+                isCompleted: .notCompleted,
                 tasks: [
                     ProjectsTask(isCompleted: false,
                                 name: "Zdobyć wiedzę teoretyczną",
@@ -96,9 +77,11 @@ extension Project {
                                 priority: .critical,
                                 estimatedImplTimeMinutes: 1200,
                                 realImplTimeMinutes: 0,
+                                creationDate: Date(timeIntervalSinceNow: 0),
                                 dueDate: Date(timeIntervalSinceNow: 0),
-                                isSubtask: false,
+                                //isSubtask: false,
                                 subTask: [],
+                                subTaskUnfold: false,
                                 notes: [
                                             TasksNote(note: "Są pewne problemy z materiałami dlatego że w najnowszej wersji Swift'a są zmiany",
                                                     author: Person(name: "Adam")
@@ -111,56 +94,63 @@ extension Project {
                     ],
                 theme: .blue
                ),
-        Project(name: "Codzienne obowiązki",
-                description: "List zadań wykonywanych codziennie.",
+        Project(projName: "Codzienne obowiązki",
+                projDescription: "List zadań wykonywanych codziennie.",
                 priority: .medium,
                 dueDate: Date(),
-                isCompleted: false,
+                isCompleted: .notCompleted,
                 tasks: [
                     ProjectsTask(
-                                 isCompleted: false,
+                        isCompleted: false,
                                  name: "Raport PW2",
                                  description: "",
                                  priority: .medium,
                                  estimatedImplTimeMinutes: 60,
                                  realImplTimeMinutes: 0,
+                                creationDate: Date(timeIntervalSinceNow: 0),
                                  dueDate: Date(timeIntervalSinceNow: 0),
-                                 isSubtask: false,
+                                 //isSubtask: false,
                                  subTask: [],
+                                 subTaskUnfold: false,
                                  notes: []
                                 ),
                     ProjectsTask(
-                                 isCompleted: true,
+                        isCompleted: false,
                                  name: "Sprawdzić nowy wniosek",
                                  description: "Sprawdzić wiosek o przygotowanie projektu",
                                  priority: .medium,
                                  estimatedImplTimeMinutes: 30,
                                  realImplTimeMinutes: 0,
+                                creationDate: Date(timeIntervalSinceNow: 0),
                                  dueDate: Date(timeIntervalSinceNow: 0),
-                                 isSubtask: false,
+                                 //isSubtask: false,
                                  subTask: [],
+                                 subTaskUnfold: false,
                                  notes: []
                                 ),
                     ProjectsTask(
-                                 isCompleted: false,
+                        isCompleted: false,
                                  name: "Pod projekt",
                                  description: "Co zrobic żeby pogadać z szefem o nowym zadaniu",
                                  priority: .medium,
                                  estimatedImplTimeMinutes: 45,
                                  realImplTimeMinutes: 0,
+                                 creationDate: Date(timeIntervalSinceNow: 0),
                                  dueDate: Date(timeIntervalSinceNow: 0),
-                                 isSubtask: true,
+                                 //isSubtask: true,
                                  subTask: [
                                     ProjectsTask(
-                                                  isCompleted: false,
+                                        isCompleted: false,
                                                   name: "Pod zadanie 1",
                                                   description: "Część większego projektu",
                                                   priority: .medium,
                                                   estimatedImplTimeMinutes: 60,
                                                   realImplTimeMinutes: 0,
+                                                creationDate: Date(timeIntervalSinceNow: 0),
                                                   dueDate: Date(timeIntervalSinceNow: 0),
-                                                  isSubtask: false,
+                                                  //isSubtask: false,
                                                   subTask: [],
+                                                  subTaskUnfold: false,
                                                   notes: []
                                                  ),
                                      ProjectsTask(
@@ -170,24 +160,29 @@ extension Project {
                                                   priority: .medium,
                                                   estimatedImplTimeMinutes: 30,
                                                   realImplTimeMinutes: 0,
+                                                  creationDate: Date(timeIntervalSinceNow: 0),
                                                   dueDate: Date(timeIntervalSinceNow: 0),
-                                                  isSubtask: false,
+                                                  //isSubtask: false,
                                                   subTask: [],
+                                                  subTaskUnfold: false,
                                                   notes: []
                                                  )
                                  ],
+                                 subTaskUnfold: false,
                                  notes: []
                                 ),
                     ProjectsTask(
-                                 isCompleted: true,
+                        isCompleted: true,
                                  name: "Z3",
                                  description: "Zadanie główne 3ie",
                                  priority: .medium,
                                  estimatedImplTimeMinutes: 30,
                                  realImplTimeMinutes: 0,
+                            creationDate: Date(timeIntervalSinceNow: 0),
                                  dueDate: Date(timeIntervalSinceNow: 0),
-                                 isSubtask: false,
+                                 //isSubtask: false,
                                  subTask: [],
+                                subTaskUnfold: false,
                                  notes: []
                                 )
                     ],

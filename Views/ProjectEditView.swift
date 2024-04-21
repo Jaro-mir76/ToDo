@@ -14,8 +14,8 @@ struct ProjectEditView: View {
         Form{
             Section(header: Text("Project info")){
                 VStack{
-                    TextField("Project name", text: $project.name)
-                    TextField("Project description", text: $project.description, axis: .vertical)
+                    TextField("Project name", text: $project.projName)
+                    TextField("Project description", text: $project.projDescription, axis: .vertical)
                         .lineLimit(5...10)
                 }
             }
@@ -26,12 +26,6 @@ struct ProjectEditView: View {
                 PriorityPicker(selection: $project.priority)
             }
             Section(header: Text("Due date")){
-                    //Due date
-                    /*HStack{
-                        Text("Due date")
-                        Spacer()
-                        Text(project.dueDate.formatted(date: .abbreviated, time: .omitted).description)
-                    }*/
                     DatePicker(
                             "Due Date",
                             selection: $project.dueDate,

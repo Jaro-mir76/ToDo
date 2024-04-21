@@ -16,7 +16,6 @@ struct TaskStatusButton: View {
         } label: {
             Label("Toggle task status", systemImage: isCompleted ? "checkmark.square" : "square")
                 .labelStyle(.iconOnly)
-                //.foregroundColor(isCompleted ? .white : .gray)
         }
     }
 }

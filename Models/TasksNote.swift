@@ -6,14 +6,18 @@
 //
 
 import Foundation
+import SwiftData
 
-struct TasksNote: Identifiable {
-    let id: UUID
+@Model
+class TasksNote {
+    @Attribute(.unique) let id: UUID
+    var task: ProjectsTask?
     var note: String
     var author: Person
     
-    init(id: UUID = UUID(), note: String, author: Person) {
+    init(id: UUID = UUID(), task: ProjectsTask? = nil, note: String, author: Person) {
         self.id = id
+        self.task = task
         self.note = note
         self.author = author
     }

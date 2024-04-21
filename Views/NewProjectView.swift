@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct NewProjectView: View {
-    @Binding var projects: [Project]
     @State private var newProject = Project.emptyProject
     @Binding var isPresentingNewProjectView: Bool
+    @Environment(\.modelContext) private var modelContext
     
     var body: some View {
         NavigationStack{
@@ -23,7 +24,7 @@ struct NewProjectView: View {
                     }
                     ToolbarItem(placement: .confirmationAction){
                         Button("Add"){
-                            projects.append(newProject)
+                            modelContext.insert(newProject)
                             isPresentingNewProjectView = false
                         }
                     }
@@ -33,5 +34,6 @@ struct NewProjectView: View {
 }
 
 #Preview {
-    return NewProjectView(projects: .constant(Project.sampleProjects), isPresentingNewProjectView: .constant(true))
+    NewProjectView(isPresentingNewProjectView: .constant(true))
+        .modelContainer(previewContainer)
 }

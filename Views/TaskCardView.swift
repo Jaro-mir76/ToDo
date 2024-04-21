@@ -8,35 +8,31 @@
 import SwiftUI
 
 struct TaskCardView: View {
-    @Binding var task: ProjectsTask
-    var isSubGroup: Bool
+    @Bindable var task: ProjectsTask
+    var isSubGroup: Bool = false
     
     var body: some View {
         VStack (alignment: .leading){
             HStack{
-               /* if isSubGroup {
-                    Label("", systemImage: "arrow.turn.down.right")
-                }*/
                 VStack{
                     HStack{
                         if !task.subTask.isEmpty {
                             HStack {
-                                Text("\(task.tasksClosed())/\(task.tasksOpened()+task.tasksClosed())")
-                                Text(task.name)
+                                Text("\(task.tasksCompleted)/\(task.tasksCount)")
+                                Text(task.taskName)
                                     .font(.headline)
                                 Spacer()
                             }
                         } else {
-                            if task.isCompleted == true {
+                            if task.taskIsCompleted == true {
                                 Label("", systemImage: "checkmark.square")
                             } else {
                                 Label("", systemImage: "square")
                             }
-                            Text(task.name)
+                            Text(task.taskName)
                                 .font(.headline)
                             Spacer()
                         }
-                        
                     }
                     HStack {
                         Label("", systemImage: "figure.walk.motion")
@@ -60,5 +56,5 @@ struct TaskCardView: View {
 }
 
 #Preview {
-    return TaskCardView(task: .constant(Project.sampleProjects[1].tasks[2]), isSubGroup: true)
+    return TaskCardView(task: Project.sampleProjects[1].tasks[2], isSubGroup: true)
 }
