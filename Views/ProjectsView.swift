@@ -20,6 +20,15 @@ struct ProjectsView: View {
                 List(projects){ project in
                     NavigationLink(destination: ProjectDetailsView(project: project)){
                         ProjectCardView(project: project)
+                            .swipeActions(edge: .trailing, allowsFullSwipe: false){
+                                Button(role: .destructive) {
+                                    if let context = project.modelContext {
+                                        context.delete(project)
+                                    }
+                                } label: {
+                                    Label("Delete", systemImage: "trash.fill")
+                                }
+                            }
                     }
                     .listRowBackground(project.theme.mainColor)
                 }

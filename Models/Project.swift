@@ -56,6 +56,16 @@ class Project {
             }
         }
     }
+    
+    func copyProject (to: Project) -> () {
+        to.projName = projName
+        to.projDescription = projDescription
+        to.priority = priority
+        to.dueDate = dueDate
+        to.isCompleted = isCompleted
+//        to.tasks = tasks          =---> why copy of tasks cause that during editing of project copy of project is added to projects
+        to.theme = theme
+    }
 }
 
 extension Project {

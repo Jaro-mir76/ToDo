@@ -15,6 +15,8 @@ struct TasksDetailsView: View {
     @State private var isPresentingEdit = false
     @State var isPresentingNewTask = false
     @State private var newNote = ""
+    @StateObject var workTime = WorkTime()
+    @Environment(\.scenePhase) var scenePhase
     
     var body: some View {
         NavigationStack{
@@ -44,12 +46,13 @@ struct TasksDetailsView: View {
                                 .font(.callout)
                         }
                         HStack{
+                            Label("", systemImage: "stopwatch")
+                            //                            Text(task.realImplTimeMinutes.description)
+                            Text("\(workTime.workingTime)")
+                            Spacer()
                             Label("", systemImage: "flag.checkered")
                             Text(task.estimatedImplTimeMinutes.description)
                                // .font(.callout)
-                            Spacer()
-                            Label("", systemImage: "stopwatch")
-                            Text(task.realImplTimeMinutes.description)
                         }
                     }
                 }
@@ -93,13 +96,7 @@ struct TasksDetailsView: View {
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             .toolbar{
                 Button("Edit"){
-                    editingTask.taskIsCompleted = task.taskIsCompleted
-                    editingTask.taskName = task.taskName
-                    editingTask.taskDescryption = task.taskDescryption
-                    editingTask.priority = task.priority
-                    editingTask.estimatedImplTimeMinutes = task.estimatedImplTimeMinutes
-                    editingTask.realImplTimeMinutes = task.realImplTimeMinutes
-                    editingTask.dueDate = task.dueDate
+                    task.copyTask(to: editingTask)
                     isPresentingEdit = true
                 }
             }
@@ -115,17 +112,17 @@ struct TasksDetailsView: View {
                             }
                             ToolbarItem(placement: .confirmationAction){
                                 Button("Done") {
-                                    task.taskIsCompleted = editingTask.taskIsCompleted
-                                    task.taskName = editingTask.taskName
-                                    task.taskDescryption = editingTask.taskDescryption
-                                    task.priority = editingTask.priority
-                                    task.estimatedImplTimeMinutes = editingTask.estimatedImplTimeMinutes
-                                    task.realImplTimeMinutes = editingTask.realImplTimeMinutes
-                                    task.dueDate = editingTask.dueDate
+                                    editingTask.copyTask(to: task)
                                     isPresentingEdit = false
                                 }
                             }
                         }
+                }
+                .onAppear(){
+                    workTime.running = false
+                }
+                .onDisappear(){
+                    workTime.running = true
                 }
             }
             .sheet(isPresented: $isPresentingNewTask){
@@ -150,8 +147,43 @@ struct TasksDetailsView: View {
                             }
                         }
                 }
+                .onAppear(){
+                    workTime.running = false
+                }
+                .onDisappear(){
+                    workTime.running = true
+                }
             }
         }
+        .onAppear(){
+            if task.subTask.isEmpty {
+                startTimer()
+                workTime.running = task.taskIsCompleted ? false : true
+            }
+            workTime.workingTime = task.realImplTimeMinutes
+        }
+        .onDisappear(){
+            stopTimer()
+        }
+        .onChange(of: task.taskIsCompleted){
+            workTime.running = task.taskIsCompleted ? false : true
+        }
+        .onChange(of: scenePhase) {
+            if scenePhase == .active {
+                workTime.running = true
+            } else {
+                workTime.running = false
+            }
+        }
+    }
+    
+    func startTimer(){
+        workTime.startTimer(from: task.realImplTimeMinutes)
+    }
+    
+    func stopTimer(){
+        workTime.stopTimer()
+        task.realImplTimeMinutes = workTime.workingTime
     }
 }
 

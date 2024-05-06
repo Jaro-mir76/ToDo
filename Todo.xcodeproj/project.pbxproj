@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A1C2ABE2BD45B2100820D46 /* TodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C2ABD2BD45B2100820D46 /* TodoApp.swift */; };
+		4A3B65ED2BE6DD8C00BE9EA7 /* WorkTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B65EC2BE6DD8C00BE9EA7 /* WorkTime.swift */; };
 		4A6F368E2BD57D5B00A41477 /* ErrorWraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36682BD57D5B00A41477 /* ErrorWraper.swift */; };
 		4A6F368F2BD57D5B00A41477 /* isCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36692BD57D5B00A41477 /* isCompleted.swift */; };
 		4A6F36902BD57D5B00A41477 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366A2BD57D5B00A41477 /* Note.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		4A1C2ABA2BD45B2100820D46 /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1C2ABD2BD45B2100820D46 /* TodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoApp.swift; sourceTree = "<group>"; };
+		4A3B65EC2BE6DD8C00BE9EA7 /* WorkTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTime.swift; sourceTree = "<group>"; };
 		4A6F36682BD57D5B00A41477 /* ErrorWraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorWraper.swift; sourceTree = "<group>"; };
 		4A6F36692BD57D5B00A41477 /* isCompleted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = isCompleted.swift; sourceTree = "<group>"; };
 		4A6F366A2BD57D5B00A41477 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				4A6F36702BD57D5B00A41477 /* ProjectsTask.swift */,
 				4A6F36712BD57D5B00A41477 /* SelectedProject.swift */,
 				4A6F36722BD57D5B00A41477 /* TasksNote.swift */,
+				4A3B65EC2BE6DD8C00BE9EA7 /* WorkTime.swift */,
 				4A6F36732BD57D5B00A41477 /* Theme.swift */,
 			);
 			path = Models;
@@ -258,6 +261,7 @@
 				4A6F36AB2BD57D5B00A41477 /* ThemePicker.swift in Sources */,
 				4A6F36AA2BD57D5B00A41477 /* TaskStatusButton.swift in Sources */,
 				4A6F36A22BD57D5B00A41477 /* ProjectDetailsView.swift in Sources */,
+				4A3B65ED2BE6DD8C00BE9EA7 /* WorkTime.swift in Sources */,
 				4A6F36952BD57D5B00A41477 /* Project.swift in Sources */,
 				4A6F369C2BD57D5B00A41477 /* ErrorView.swift in Sources */,
 				4A6F36A62BD57D5B00A41477 /* TaskCardView.swift in Sources */,

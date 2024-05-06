@@ -62,13 +62,7 @@ struct ProjectDetailsView: View {
             .navigationTitle(project.projName)
             .toolbar{
                 Button("Edit"){
-                    editingProject.projName = project.projName
-                    editingProject.projDescription = project.projDescription
-                    editingProject.priority = project.priority
-                    editingProject.dueDate = project.dueDate
-                    editingProject.isCompleted = project.isCompleted
-                    editingProject.tasks = project.tasks
-                    editingProject.theme = project.theme
+                    project.copyProject(to: editingProject)
                     isPresentingEdit = true
                 }
             }
@@ -84,13 +78,7 @@ struct ProjectDetailsView: View {
                         }
                         ToolbarItem(placement: .confirmationAction){
                             Button("Done") {
-                                project.projName = editingProject.projName
-                                project.projDescription = editingProject.projDescription
-                                project.priority = editingProject.priority
-                                project.dueDate = editingProject.dueDate
-                                project.isCompleted = editingProject.isCompleted
-                                project.tasks = editingProject.tasks
-                                project.theme = editingProject.theme
+                                editingProject.copyProject(to: project)
                                 isPresentingEdit = false
                             }
                         }
@@ -114,7 +102,7 @@ struct ProjectDetailsView: View {
                                         newtask.project = project
                                         newtask.parentTask = parentTask
                                         project.tasks.append(newtask)
-                                    project.updateStats()
+                                        project.updateStats()
                                         isPresentingNewTask = false
                                     }
                                 )

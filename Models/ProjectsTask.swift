@@ -50,6 +50,7 @@ class ProjectsTask {
         if !subTask.isEmpty {
             tasksCount = 0
             tasksCompleted = 0
+            realImplTimeMinutes = 0
             countTasks(subTask)
         }
     }
@@ -60,11 +61,25 @@ class ProjectsTask {
                 countTasks(ta.subTask)
             } else {
                 tasksCount += 1
+                realImplTimeMinutes += ta.realImplTimeMinutes
                 if ta.taskIsCompleted {
                     tasksCompleted += 1
                 }
             }
         }
+    }
+    
+    func copyTask (to: ProjectsTask) -> () {
+//        to.project = project          ---> to be confirmed if after editing task no unassigned task is saved in the file
+//        to.parentTask = parentTask
+        to.taskIsCompleted = taskIsCompleted
+        to.taskName = taskName
+        to.taskDescryption = taskDescryption
+        to.priority = priority
+        to.estimatedImplTimeMinutes = estimatedImplTimeMinutes
+        to.realImplTimeMinutes = realImplTimeMinutes
+        to.creationDate = creationDate
+        to.dueDate = dueDate
     }
     
     static var emptyTask: ProjectsTask{

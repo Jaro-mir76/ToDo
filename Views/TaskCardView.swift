@@ -14,6 +14,9 @@ struct TaskCardView: View {
     var body: some View {
         VStack (alignment: .leading){
             HStack{
+                if !task.subTask.isEmpty {
+                    SubListUnfold(unFold: $task.subTaskUnfold)                    
+                }
                 VStack{
                     HStack{
                         if !task.subTask.isEmpty {

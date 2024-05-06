@@ -36,7 +36,6 @@ struct TasksListView: View {
             if !task.subTask.isEmpty {
                 @Bindable var task = task
                 HStack {
-                    SubListUnfold(unFold: $task.subTaskUnfold)
                         VStack (alignment: .leading){
                                 NavigationLink(destination: TasksDetailsView(activeProject: activeProject, parentTask: task, task: task)){
                                     TaskCardView(task: task)
