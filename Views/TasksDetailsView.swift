@@ -22,7 +22,8 @@ struct TasksDetailsView: View {
         NavigationStack{
             HStack{
                 if !task.subTask.isEmpty {
-                    Text("\(task.tasksCompleted)/\(task.tasksCount)")
+//                    Text("\(task.tasksCompleted)/\(task.tasksCount)")
+                    SubTasksStatus(task: task)
                 } else {
                     TaskStatusButton(isCompleted: $task.taskIsCompleted)
                 }
@@ -47,12 +48,11 @@ struct TasksDetailsView: View {
                         }
                         HStack{
                             Label("", systemImage: "stopwatch")
-                            //                            Text(task.realImplTimeMinutes.description)
+//                            Text(task.realImplTimeMinutes.description)
                             Text("\(workTime.workingTime)")
                             Spacer()
                             Label("", systemImage: "flag.checkered")
                             Text(task.estimatedImplTimeMinutes.description)
-                               // .font(.callout)
                         }
                     }
                 }
@@ -89,7 +89,7 @@ struct TasksDetailsView: View {
                     if !task.subTask.isEmpty {
                         TasksListView(activeProject: activeProject, parentTask: task)
                     } else {
-                        Text("There is not subtasks, but you can add one ;)")
+                        Text("There are no subtasks, so lets plan something ;)")
                     }
                 }
             }
@@ -151,7 +151,7 @@ struct TasksDetailsView: View {
                     workTime.running = false
                 }
                 .onDisappear(){
-                    workTime.running = true
+                        workTime.running = task.subTask.isEmpty
                 }
             }
         }

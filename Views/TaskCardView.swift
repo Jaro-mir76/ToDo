@@ -15,23 +15,19 @@ struct TaskCardView: View {
         VStack (alignment: .leading){
             HStack{
                 if !task.subTask.isEmpty {
-                    SubListUnfold(unFold: $task.subTaskUnfold)                    
+                    SubListUnfold(unFold: $task.subTaskUnfold)
                 }
                 VStack{
                     HStack{
                         if !task.subTask.isEmpty {
                             HStack {
-                                Text("\(task.tasksCompleted)/\(task.tasksCount)")
+                                SubTasksStatus(task: task)
                                 Text(task.taskName)
                                     .font(.headline)
                                 Spacer()
                             }
                         } else {
-                            if task.taskIsCompleted == true {
-                                Label("", systemImage: "checkmark.square")
-                            } else {
-                                Label("", systemImage: "square")
-                            }
+                            Label("", systemImage: task.taskIsCompleted ? "checkmark.square" : "square")
                             Text(task.taskName)
                                 .font(.headline)
                             Spacer()

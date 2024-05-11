@@ -55,7 +55,7 @@ struct ProjectDetailsView: View {
                     if !project.tasks.isEmpty {
                         TasksListView(activeProject: project, parentTask: nil)
                     } else {
-                        Text("There is not tasks, but you can create some ;)")
+                        Text("There are no tasks, so lets plan something crazy ;D")
                     }
                 }
             }

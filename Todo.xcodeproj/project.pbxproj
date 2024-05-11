@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A1C2ABE2BD45B2100820D46 /* TodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C2ABD2BD45B2100820D46 /* TodoApp.swift */; };
 		4A3B65ED2BE6DD8C00BE9EA7 /* WorkTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B65EC2BE6DD8C00BE9EA7 /* WorkTime.swift */; };
+		4A3B65EF2BE978CC00BE9EA7 /* SubTasksStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B65EE2BE978CC00BE9EA7 /* SubTasksStatus.swift */; };
 		4A6F368E2BD57D5B00A41477 /* ErrorWraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36682BD57D5B00A41477 /* ErrorWraper.swift */; };
 		4A6F368F2BD57D5B00A41477 /* isCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36692BD57D5B00A41477 /* isCompleted.swift */; };
 		4A6F36902BD57D5B00A41477 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366A2BD57D5B00A41477 /* Note.swift */; };
@@ -46,6 +47,7 @@
 		4A1C2ABA2BD45B2100820D46 /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1C2ABD2BD45B2100820D46 /* TodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoApp.swift; sourceTree = "<group>"; };
 		4A3B65EC2BE6DD8C00BE9EA7 /* WorkTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTime.swift; sourceTree = "<group>"; };
+		4A3B65EE2BE978CC00BE9EA7 /* SubTasksStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTasksStatus.swift; sourceTree = "<group>"; };
 		4A6F36682BD57D5B00A41477 /* ErrorWraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorWraper.swift; sourceTree = "<group>"; };
 		4A6F36692BD57D5B00A41477 /* isCompleted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = isCompleted.swift; sourceTree = "<group>"; };
 		4A6F366A2BD57D5B00A41477 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				4A6F36822BD57D5B00A41477 /* TasksDetailsView.swift */,
 				4A6F36832BD57D5B00A41477 /* TasksEditView.swift */,
 				4A6F36842BD57D5B00A41477 /* TasksListView.swift */,
+				4A3B65EE2BE978CC00BE9EA7 /* SubTasksStatus.swift */,
 				4A6F36852BD57D5B00A41477 /* TaskStatusButton.swift */,
 				4A6F36862BD57D5B00A41477 /* ThemePicker.swift */,
 				4A6F36872BD57D5B00A41477 /* ThemeViewer.swift */,
@@ -243,6 +246,7 @@
 				4A6F369D2BD57D5B00A41477 /* NewProjectView.swift in Sources */,
 				4A6F36992BD57D5B00A41477 /* Theme.swift in Sources */,
 				4A6F36A92BD57D5B00A41477 /* TasksListView.swift in Sources */,
+				4A3B65EF2BE978CC00BE9EA7 /* SubTasksStatus.swift in Sources */,
 				4A6F36AD2BD57D5B00A41477 /* TrailingIconLabelStyle.swift in Sources */,
 				4A6F36942BD57D5B00A41477 /* Priority.swift in Sources */,
 				4A6F368E2BD57D5B00A41477 /* ErrorWraper.swift in Sources */,
