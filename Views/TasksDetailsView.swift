@@ -21,7 +21,7 @@ struct TasksDetailsView: View {
     var body: some View {
         NavigationStack{
             HStack{
-                if !task.subTask.isEmpty {
+                if task.subTask?.count != 0 {
 //                    Text("\(task.tasksCompleted)/\(task.tasksCount)")
                     SubTasksStatus(task: task)
                 } else {
@@ -86,7 +86,7 @@ struct TasksDetailsView: View {
                                 }
                             }
                 ){
-                    if !task.subTask.isEmpty {
+                    if task.subTask?.count != 0  {
                         TasksListView(activeProject: activeProject, parentTask: task)
                     } else {
                         Text("There are no subtasks, so lets plan something ;)")
@@ -140,7 +140,7 @@ struct TasksDetailsView: View {
                                 Button("Add") {
                                     newtask.project = activeProject
                                     newtask.parentTask = parentTask
-                                    task.subTask.append(newtask)
+                                    task.subTask?.append(newtask)
                                     activeProject.updateStats()
                                     isPresentingNewTask = false
                                 }
@@ -151,12 +151,16 @@ struct TasksDetailsView: View {
                     workTime.running = false
                 }
                 .onDisappear(){
-                        workTime.running = task.subTask.isEmpty
+                    if task.subTask?.count != 0 {
+                        workTime.running = false
+                    } else {
+                        workTime.running = true
+                    }
                 }
             }
         }
         .onAppear(){
-            if task.subTask.isEmpty {
+            if task.subTask?.count == 0 {
                 startTimer()
                 workTime.running = task.taskIsCompleted ? false : true
             }

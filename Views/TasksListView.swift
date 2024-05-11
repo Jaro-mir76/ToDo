@@ -33,12 +33,10 @@ struct TasksListView: View {
     
     var body: some View {
         ForEach(tasks, id: \.id){ task in
-//            OutlineGroup(task, children: \.subTask){
-//                TaskCardView(task: $0)
-//            }
             
-            switch task.subTask.isEmpty {
-            case true:
+// Logic with OUTLINEGROUP
+            OutlineGroup(task, id: \.id, children: \.subTask){
+                let task = $0
                 NavigationLink(destination: TasksDetailsView(activeProject: activeProject, parentTask: task, task: task)){
                     TaskCardView(task: task)
                         .swipeActions(edge: .leading, allowsFullSwipe: false){
@@ -61,22 +59,49 @@ struct TasksListView: View {
                             }
                         }
                 }
-            case false:
-                @Bindable var task = task
-                HStack {
-                        VStack (alignment: .leading){
-                                NavigationLink(destination: TasksDetailsView(activeProject: activeProject, parentTask: task, task: task)){
-                                    TaskCardView(task: task)
-                                }
-                        }
-                }
-                if task.subTaskUnfold {
-                    TasksListView(activeProject: activeProject, parentTask: task)
-                    .padding(.leading, 30)
-                }
             }
             
+// Logic with SWITCH CASE
+//            switch task.subTask.isEmpty {
+//            case true:
+//                NavigationLink(destination: TasksDetailsView(activeProject: activeProject, parentTask: task, task: task)){
+//                    TaskCardView(task: task)
+//                        .swipeActions(edge: .leading, allowsFullSwipe: false){
+//                            Button {
+//                                task.taskIsCompleted.toggle()
+//                                activeProject.updateStats()
+//                            } label: {
+//                                Label(task.taskIsCompleted ? "Incomplete" : "Complete", systemImage: task.taskIsCompleted ? "checkmark.gobackward" : "checkmark.circle")
+//                            }
+//                        }
+//                        .tint(.green)
+//                        .swipeActions(edge: .trailing, allowsFullSwipe: false){
+//                            Button(role: .destructive) {
+//                                if let context = task.modelContext {
+//                                    context.delete(task)
+//                                    activeProject.updateStats()
+//                                }
+//                            } label: {
+//                                Label("Delete", systemImage: "trash.fill")
+//                            }
+//                        }
+//                }
+//            case false:
+//                @Bindable var task = task
+//                HStack {
+//                        VStack (alignment: .leading){
+//                                NavigationLink(destination: TasksDetailsView(activeProject: activeProject, parentTask: task, task: task)){
+//                                    TaskCardView(task: task)
+//                                }
+//                        }
+//                }
+//                if task.subTaskUnfold {
+//                    TasksListView(activeProject: activeProject, parentTask: task)
+//                    .padding(.leading, 30)
+//                }
+//            }
             
+// Logic with IF ELSE
 //            if !task.subTask.isEmpty {
 //                @Bindable var task = task
 //                HStack {
