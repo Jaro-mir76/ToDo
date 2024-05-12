@@ -63,8 +63,8 @@ class Project {
         to.priority = priority
         to.dueDate = dueDate
         to.isCompleted = isCompleted
-//        to.tasks = tasks          =---> why copy of tasks cause that during editing of project copy of project is added to projects
         to.theme = theme
+//        to.tasks = tasks          =---> why copy of tasks cause that during editing of project copy of project is added to projects
     }
 }
 
@@ -73,36 +73,35 @@ extension Project {
         Project(projName: "", projDescription: "", priority: .dontCare, dueDate: Date(), isCompleted: .notCompleted, tasks: [], theme: .blue)
     }
     
-    static let sampleProjects: [Project] =
-    [
+    static let sampleProjects: [Project] = [
         Project(projName: "Project ToDo app",
-                projDescription: "Creation of application for tasks management.",
-                priority: .high,
-                dueDate: Date(),
-                isCompleted: .notCompleted,
-                tasks: [
-                    ProjectsTask(isCompleted: false,
-                                name: "Gather theoretical knowledge",
-                                description: "Study materials on apple page for developers",
-                                priority: .critical,
-                                estimatedImplTimeMinutes: 1200,
-                                realImplTimeMinutes: 0,
-                                creationDate: Date(timeIntervalSinceNow: 0),
-                                dueDate: Date(timeIntervalSinceNow: 0),
-                                //isSubtask: false,
-                                subTask: [],
-                                subTaskUnfold: false,
-                                notes: [
-                                            TasksNote(note: "I face some problems, materials on web are a bit outdated",
-                                                    author: Person(name: "Adam")
-                                                   ),
-                                            TasksNote(note: "...slowely going there",
-                                                    author: Person(name: "Adam")
-                                                   )
-                                    ]
-                                )
-                    ],
-                theme: .blue
-               )
+            projDescription: "Creation of application for tasks management.",
+            priority: .high,
+            dueDate: Date(),
+            isCompleted: .notCompleted,
+            tasks: [
+                ProjectsTask(isCompleted: false,
+                            name: "Gather theoretical knowledge",
+                            description: "Study materials on apple page for developers",
+                            priority: .critical,
+                            estimatedImplTimeMinutes: 1200,
+                            realImplTimeMinutes: 0,
+                            creationDate: Date(timeIntervalSinceNow: 0),
+                            dueDate: Date(timeIntervalSinceNow: 0),
+                            //isSubtask: false,
+                            subTask: [],
+                            subTaskUnfold: false,
+                            notes: [
+                                        TasksNote(note: "I face some problems, materials on web are a bit outdated",
+                                                author: Person(name: "Adam")
+                                               ),
+                                        TasksNote(note: "...slowely going there",
+                                                author: Person(name: "Adam")
+                                               )
+                                ]
+                            )
+                ],
+            theme: .blue
+           )
     ]
 }

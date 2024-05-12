@@ -72,6 +72,7 @@ class ProjectsTask {
     func copyTask (to: ProjectsTask) -> () {
 //        to.project = project          ---> to be confirmed if after editing task no unassigned task is saved in the file
 //        to.parentTask = parentTask
+        
         to.taskIsCompleted = taskIsCompleted
         to.taskName = taskName
         to.taskDescryption = taskDescryption
