@@ -45,9 +45,9 @@ class Project {
     
     func countTasks(_ projectTasks: [ProjectsTask]) -> () {
         for ta in projectTasks{
-            if !ta.subTask.isEmpty{
+            if ta.subTask?.count != 0 {
                 ta.updateStats()
-                countTasks(ta.subTask)
+                countTasks(ta.subTask!)
             } else {
                 tasksCount += 1
                 if ta.taskIsCompleted {

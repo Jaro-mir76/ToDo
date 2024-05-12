@@ -13,13 +13,13 @@ struct TaskCardView: View {
     
     var body: some View {
         VStack (alignment: .leading){
-            HStack{
-                if !task.subTask.isEmpty {
-                    SubListUnfold(unFold: $task.subTaskUnfold)
-                }
+//            HStack{
+//                if let _ = task.subTask {
+//                    SubListUnfold(unFold: $task.subTaskUnfold)
+//                }
                 VStack{
                     HStack{
-                        if !task.subTask.isEmpty {
+                        if task.subTask?.count != 0 {
                             HStack {
                                 SubTasksStatus(task: task)
                                 Text(task.taskName)
@@ -50,7 +50,7 @@ struct TaskCardView: View {
                         Text("min.")
                     }
                 }
-            }
+//            }
         }
     }
 }

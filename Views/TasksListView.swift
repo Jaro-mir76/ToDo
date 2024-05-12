@@ -45,6 +45,7 @@ struct TasksListView: View {
                                     Label(task.taskIsCompleted ? "Incomplete" : "Complete", systemImage: task.taskIsCompleted ? "checkmark.gobackward" : "checkmark.circle")
                                 }
                             }
+
                             .tint(.green)
                             .swipeActions(edge: .trailing, allowsFullSwipe: false){
                                 Button(role: .destructive) {
