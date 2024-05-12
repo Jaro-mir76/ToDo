@@ -44,6 +44,7 @@ struct TasksListView: View {
                             } label: {
                                 Label(task.taskIsCompleted ? "Incomplete" : "Complete", systemImage: task.taskIsCompleted ? "checkmark.gobackward" : "checkmark.circle")
                             }
+
                         }
                         .tint(.green)
                         .swipeActions(edge: .trailing, allowsFullSwipe: false){
@@ -51,6 +52,7 @@ struct TasksListView: View {
                                 if let context = task.modelContext {
                                     context.delete(task)
                                     activeProject.updateStats()
+
                                 }
                             } label: {
                                 Label("Delete", systemImage: "trash.fill")
