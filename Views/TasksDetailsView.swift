@@ -22,7 +22,6 @@ struct TasksDetailsView: View {
         NavigationStack{
             HStack{
                 if !task.subTask.isEmpty {
-//                    Text("\(task.tasksCompleted)/\(task.tasksCount)")
                     SubTasksStatus(task: task)
                 } else {
                     TaskStatusButton(isCompleted: $task.taskIsCompleted)
@@ -49,13 +48,15 @@ struct TasksDetailsView: View {
                         HStack{
                             Label("", systemImage: "stopwatch")
 //                            Text(task.realImplTimeMinutes.description)
-                            Text("\(workTime.workingTime)")
+//                            Text("\(workTime.workingTime)")
+                            TimeDurationView(duration: workTime.workingTime)
                             Spacer()
                             Label("", systemImage: "flag.checkered")
                             Text(task.estimatedImplTimeMinutes.description)
                         }
                     }
                 }
+                .listRowBackground(activeProject.theme.mainColor)
                 Section(header: Text("Notes")){
                     if !task.notes.isEmpty {
                         ForEach(task.notes){note in
@@ -63,6 +64,7 @@ struct TasksDetailsView: View {
                         }
                     }
                 }
+                .listRowBackground(activeProject.theme.mainColor)
                 HStack {
                     TextField("New note", text: $newNote)
                     Button(action: {
@@ -77,6 +79,7 @@ struct TasksDetailsView: View {
                     }
                     .disabled(newNote.isEmpty)
                 }
+                .listRowBackground(activeProject.theme.mainColor)
                 Section(header:
                             HStack{
                                 Text("Tasks")
@@ -92,6 +95,7 @@ struct TasksDetailsView: View {
                         Text("There are no subtasks, so lets plan something ;)")
                     }
                 }
+                .listRowBackground(activeProject.theme.mainColor)
             }
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             .toolbar{
@@ -151,7 +155,7 @@ struct TasksDetailsView: View {
                     workTime.running = false
                 }
                 .onDisappear(){
-                        workTime.running = task.subTask.isEmpty
+                    workTime.running = task.subTask.isEmpty
                 }
             }
         }
@@ -184,6 +188,7 @@ struct TasksDetailsView: View {
     func stopTimer(){
         workTime.stopTimer()
         task.realImplTimeMinutes = workTime.workingTime
+        parentTask?.updateStats()
     }
 }
 

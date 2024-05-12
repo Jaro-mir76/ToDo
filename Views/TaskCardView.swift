@@ -42,7 +42,8 @@ struct TaskCardView: View {
                     }
                     HStack {
                         Label("", systemImage: "stopwatch")
-                        Text(task.realImplTimeMinutes.description)
+//                        Text(task.realImplTimeMinutes.description)
+                        TimeDurationView(duration: task.realImplTimeMinutes)
                         Spacer()
                         Label("", systemImage: "flag.checkered")
                         Text(task.estimatedImplTimeMinutes.description)

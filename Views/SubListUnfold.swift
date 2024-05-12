@@ -15,6 +15,7 @@ struct SubListUnfold: View {
             unFold.toggle()
         } label: {
             Label("", systemImage: unFold ? "chevron.down" : "chevron.right")
+                .font(.caption2)
         }
         //.padding([.leading, .trailing], -11)
         .padding(EdgeInsets(top: 0, leading: -8, bottom: 0, trailing: -14))
