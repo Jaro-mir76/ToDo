@@ -21,13 +21,13 @@ class ProjectsTask {
     var realImplTimeMinutes: Int
     var creationDate: Date
     var dueDate: Date
-    @Relationship(deleteRule: .cascade, inverse: \ProjectsTask.parentTask) var subTask: [ProjectsTask]?
+    @Relationship(deleteRule: .cascade, inverse: \ProjectsTask.parentTask) var subTask: [ProjectsTask]
     var subTaskUnfold: Bool
     @Relationship(deleteRule: .cascade, inverse: \TasksNote.task) var notes: [TasksNote]
     var tasksCount: Int
     var tasksCompleted: Int
     
-    init(id: UUID = UUID(), project: Project? = nil, isCompleted: Bool, name: String, description: String, priority: Priority, estimatedImplTimeMinutes: Int, realImplTimeMinutes: Int, creationDate: Date, dueDate: Date, subTask: [ProjectsTask]? = nil, subTaskUnfold: Bool, notes: [TasksNote] = []) {
+    init(id: UUID = UUID(), project: Project? = nil, isCompleted: Bool, name: String, description: String, priority: Priority, estimatedImplTimeMinutes: Int, realImplTimeMinutes: Int, creationDate: Date, dueDate: Date, subTask: [ProjectsTask] = [], subTaskUnfold: Bool, notes: [TasksNote] = []) {
         self.id = id
         self.project = project
         self.taskIsCompleted = false
@@ -47,18 +47,18 @@ class ProjectsTask {
     }
     
     func updateStats(){
-        if subTask?.count != 0 {
+        if !subTask.isEmpty {
             tasksCount = 0
             tasksCompleted = 0
             realImplTimeMinutes = 0
-            countTasks(subTask!)
+            countTasks(subTask)
         }
     }
     
     func countTasks(_ projectTasks: [ProjectsTask]) -> () {
         for ta in projectTasks{
-            if ta.subTask?.count != 0 {
-                countTasks(ta.subTask!)
+            if !ta.subTask.isEmpty{
+                countTasks(ta.subTask)
             } else {
                 tasksCount += 1
                 realImplTimeMinutes += ta.realImplTimeMinutes
@@ -84,6 +84,6 @@ class ProjectsTask {
     }
     
     static var emptyTask: ProjectsTask{
-        ProjectsTask(isCompleted: false, name: "", description: "", priority: .dontCare, estimatedImplTimeMinutes: 0, realImplTimeMinutes: 0, creationDate: Date(), dueDate: Date(), subTask: nil, subTaskUnfold: false, notes: [])
+        ProjectsTask(isCompleted: false, name: "", description: "", priority: .dontCare, estimatedImplTimeMinutes: 0, realImplTimeMinutes: 0, creationDate: Date(), dueDate: Date(), subTask: [], subTaskUnfold: false, notes: [])
     }
 }
