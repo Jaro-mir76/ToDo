@@ -70,7 +70,7 @@ class Project {
 
 extension Project {
     static var emptyProject: Project{
-        Project(projName: "", projDescription: "", priority: .dontCare, dueDate: Date(), isCompleted: .notCompleted, tasks: [], theme: .blue)
+        Project(projName: "", projDescription: "", priority: .medium, dueDate: Date(), isCompleted: .notCompleted, tasks: [], theme: .green)
     }
     
     static let sampleProjects: [Project] = [

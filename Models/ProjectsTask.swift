@@ -84,6 +84,6 @@ class ProjectsTask {
     }
     
     static var emptyTask: ProjectsTask{
-        ProjectsTask(isCompleted: false, name: "", description: "", priority: .dontCare, estimatedImplTimeMinutes: 0, realImplTimeMinutes: 0, creationDate: Date(), dueDate: Date(), subTask: [], subTaskUnfold: false, notes: [])
+        ProjectsTask(isCompleted: false, name: "", description: "", priority: .medium, estimatedImplTimeMinutes: 0, realImplTimeMinutes: 0, creationDate: Date(), dueDate: Date(), subTask: [], subTaskUnfold: false, notes: [])
     }
 }
