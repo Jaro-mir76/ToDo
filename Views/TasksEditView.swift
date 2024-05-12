@@ -12,29 +12,38 @@ struct TasksEditView: View {
     
     var body: some View {
         Form{
-            Section(header: Text("Tasks details")){
+            Section(header: Text("Task details")){
                 VStack{
-                    TextField("Tasks name", text: $task.taskName)
-                    TextField("Tasks description", text: $task.taskDescryption, axis: .vertical)
+                    TextField("Task name", text: $task.taskName)
+                    TextField("Task details", text: $task.taskDescryption, axis: .vertical)
                         .lineLimit(5...10)
-                    PriorityPicker(selection: $task.priority)
-                    HStack{
-                        Text("Due date")
-                        Spacer()
-                    }
-                    DatePicker(
-                            "Due Date",
-                            selection: $task.dueDate,
-                            displayedComponents: [.date]
-                        )
-                    .datePickerStyle(.graphical)
-                    
-                    HStack{
-                        Text("ETA:")
-                        Spacer()
-                        TextField("ETA", value: $task.estimatedImplTimeMinutes, formatter: NumberFormatter())
-                    }
                 }
+            }
+            Section(header: Text("Priority, Required time")){
+                HStack{
+                    Text("Priority")
+                        .font(.footnote)
+                        .textCase(.uppercase)
+                        .foregroundColor(.gray)
+                    Spacer()
+                    PriorityPicker(selection: $task.priority)
+                }
+                HStack{
+                    Text("ETA:")
+                        .font(.footnote)
+                        .textCase(.uppercase)
+                        .foregroundColor(.gray)
+                    Spacer()
+                    TextField("ETA", value: $task.estimatedImplTimeMinutes, formatter: NumberFormatter())
+                }
+            }
+            Section(header: Text("Due date")){
+                DatePicker(
+                    "Due Date",
+                    selection: $task.dueDate,
+                    displayedComponents: [.date]
+                )
+                .datePickerStyle(.graphical)
             }
         }
     }

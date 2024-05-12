@@ -19,11 +19,21 @@ struct ProjectEditView: View {
                         .lineLimit(5...10)
                 }
             }
-            Section(header: Text("Theme")){
-                ThemePicker(selection: $project.theme)
-            }
-            Section(header: Text("Priority")){
+            HStack{
+                Text("Priority")
+                    .font(.footnote)
+                    .textCase(.uppercase)
+                    .foregroundColor(.gray)
+                Spacer()
                 PriorityPicker(selection: $project.priority)
+            }
+            HStack{
+                Text("Theme")
+                    .font(.footnote)
+                    .textCase(.uppercase)
+                    .foregroundColor(.gray)
+                Spacer()
+                ThemePicker(selection: $project.theme)
             }
             Section(header: Text("Due date")){
                     DatePicker(

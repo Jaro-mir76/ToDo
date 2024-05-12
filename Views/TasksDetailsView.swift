@@ -82,9 +82,11 @@ struct TasksDetailsView: View {
                     HStack{
                         Text("Tasks")
                         Spacer()
-                        Button("Add task"){
+                        Button(action: {
                             isPresentingNewTask = true
-                        }
+                        }, label: {
+                            Label("", systemImage: "plus.circle.fill")
+                        })
                     }
                 ){
                     if !task.subTask.isEmpty {

@@ -17,7 +17,7 @@ struct PriorityPicker: View {
                         .tag(priority)
                 }
             }
-            .pickerStyle(.navigationLink)
+            .pickerStyle(.menu)
         }
     }
 

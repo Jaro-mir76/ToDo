@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 class ProjectsTask {
-    @Attribute(.unique) var id: UUID
+    @Attribute(.unique) let id: UUID
     var project: Project?
     var parentTask: ProjectsTask?
     var taskIsCompleted: Bool

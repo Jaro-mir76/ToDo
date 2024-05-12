@@ -18,7 +18,7 @@ struct ProjectDetailsView: View {
     var body: some View {
         NavigationStack{
             List{
-                Section(header: Text("Project info")){
+                Section(header: Text("Project info").foregroundColor(.black)){
                     VStack(alignment: .leading ){
                         HStack(alignment: .firstTextBaseline){
                             Label("", systemImage: "list.clipboard")
@@ -44,13 +44,20 @@ struct ProjectDetailsView: View {
                     }
                 }
                 .listRowBackground(project.theme.mainColor)
+//                .foregroundColor(project.theme.accentColor)
                 Section(header:
                     HStack{
-                        Text("Tasks")
+                        Text("Tasks").foregroundColor(.black)
                         Spacer()
-                        Button("Add task"){
-                            isPresentingNewTask = true
-                        }
+                    Button(action: {
+                        isPresentingNewTask = true
+                    }, label: {
+//                        Text("Add task").foregroundColor(.black)
+                        Label("", systemImage: "plus.circle.fill")
+                    })
+//                    Button("Add task"){
+//                            isPresentingNewTask = true
+//                        }
                     }
                 ){
                     if !project.tasks.isEmpty {
@@ -60,8 +67,8 @@ struct ProjectDetailsView: View {
                     }
                 }
                 .listRowBackground(project.theme.mainColor)
+//                .foregroundColor(project.theme.accentColor)
             }
-            .foregroundColor(project.theme.accentColor)
             .navigationTitle(project.projName)
             .toolbar{
                 Button("Edit"){
