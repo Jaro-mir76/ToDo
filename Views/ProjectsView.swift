@@ -32,7 +32,7 @@ struct ProjectsView: View {
                     }
                     .listRowBackground(project.theme.mainColor)
                 }
-                .navigationTitle("Lista projektów")
+                .navigationTitle("Project list")
                 .toolbar {
                     Button(action: {
                         isPresentingNewProjectView = true

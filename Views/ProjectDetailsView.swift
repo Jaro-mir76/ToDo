@@ -43,6 +43,7 @@ struct ProjectDetailsView: View {
                         }
                     }
                 }
+                .listRowBackground(project.theme.mainColor)
                 Section(header:
                     HStack{
                         Text("Tasks")
@@ -58,7 +59,9 @@ struct ProjectDetailsView: View {
                         Text("There are no tasks, so lets plan something crazy ;D")
                     }
                 }
+                .listRowBackground(project.theme.mainColor)
             }
+            .foregroundColor(project.theme.accentColor)
             .navigationTitle(project.projName)
             .toolbar{
                 Button("Edit"){
