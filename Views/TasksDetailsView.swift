@@ -47,8 +47,6 @@ struct TasksDetailsView: View {
                         }
                         HStack{
                             Label("", systemImage: "stopwatch")
-//                            Text(task.realImplTimeMinutes.description)
-//                            Text("\(workTime.workingTime)")
                             TimeDurationView(duration: workTime.workingTime)
                             Spacer()
                             Label("", systemImage: "flag.checkered")
@@ -81,13 +79,13 @@ struct TasksDetailsView: View {
                 }
                 .listRowBackground(activeProject.theme.mainColor)
                 Section(header:
-                            HStack{
-                                Text("Tasks")
-                                Spacer()
-                                Button("Add task"){
-                                    isPresentingNewTask = true
-                                }
-                            }
+                    HStack{
+                        Text("Tasks")
+                        Spacer()
+                        Button("Add task"){
+                            isPresentingNewTask = true
+                        }
+                    }
                 ){
                     if !task.subTask.isEmpty {
                         TasksListView(activeProject: activeProject, parentTask: task)
