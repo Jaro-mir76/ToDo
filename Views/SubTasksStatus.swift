@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SubTasksStatus: View {
-    var task: ProjectsTask
+    var task: ProjectTask
     
     var body: some View {
         Text("\(task.tasksCompleted)/\(task.tasksCount)")
@@ -16,5 +16,5 @@ struct SubTasksStatus: View {
 }
 
 #Preview {
-    return SubTasksStatus(task: ProjectsTask.emptyTask)
+    return SubTasksStatus(task: ProjectTask.emptyTask)
 }

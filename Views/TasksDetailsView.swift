@@ -9,9 +9,9 @@ import SwiftUI
 
 struct TasksDetailsView: View {
     var activeProject: Project
-    var parentTask: ProjectsTask?
-    @Bindable var task: ProjectsTask
-    @State private var editingTask = ProjectsTask.emptyTask
+    var parentTask: ProjectTask?
+    @Bindable var task: ProjectTask
+    @State private var editingTask = ProjectTask.emptyTask
     @State private var isPresentingEdit = false
     @State var isPresentingNewTask = false
     @State private var newNote = ""
@@ -50,7 +50,7 @@ struct TasksDetailsView: View {
                             TimeDurationView(duration: workTime.workingTime)
                             Spacer()
                             Label("", systemImage: "flag.checkered")
-                            Text(task.estimatedImplTimeMinutes.description)
+                            Text(task.estimatedImplTimeString)
                         }
                     }
                 }
@@ -67,7 +67,7 @@ struct TasksDetailsView: View {
                     TextField("New note", text: $newNote)
                     Button(action: {
                         withAnimation {
-                            let note = TasksNote(note: newNote, author: Person(name: "Adam"))
+                            let note = TaskNote(note: newNote, author: Person(name: "Adam"))
                             task.notes.append(note)
                             newNote = ""
                         }
@@ -92,7 +92,7 @@ struct TasksDetailsView: View {
                     if !task.subTask.isEmpty {
                         TasksListView(activeProject: activeProject, parentTask: task)
                     } else {
-                        Text("There are no subtasks, so lets plan something ;)")
+                        Text("There are no subtasks, so lets plan something 🤓")
                     }
                 }
                 .listRowBackground(activeProject.theme.mainColor)
@@ -131,7 +131,7 @@ struct TasksDetailsView: View {
             }
             .sheet(isPresented: $isPresentingNewTask){
                 NavigationStack{
-                    @State var newtask = ProjectsTask.emptyTask
+                    @State var newtask = ProjectTask.emptyTask
                     TasksEditView(task: $newtask)
                         .navigationTitle("New task")
                         .toolbar {
@@ -193,5 +193,5 @@ struct TasksDetailsView: View {
 }
 
 #Preview {
-    return TasksDetailsView(activeProject: Project.sampleProjects[0], parentTask: ProjectsTask.emptyTask ,task: (Project.sampleProjects[0].tasks[0]))
+    return TasksDetailsView(activeProject: Project.sampleProjects[0], parentTask: ProjectTask.emptyTask ,task: (Project.sampleProjects[0].tasks[0]))
 }

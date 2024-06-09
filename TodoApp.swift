@@ -12,13 +12,13 @@ struct TodoApp: App {
     
     var body: some Scene {
         #if os(iOS) || os(macOS)
-        DocumentGroup(editing: [Project.self, ProjectsTask.self, TasksNote.self], contentType: .todoData){
+        DocumentGroup(editing: [Project.self, ProjectTask.self, TaskNote.self], contentType: .todoData){
             ProjectsView()
         }
         #else
         WindowGroup {
             ProjectsView()
-                .modelContainer(for: [Project.self, ProjectsTask.self, TasksNote.self])
+                .modelContainer(for: [Project.self, ProjectTask.self, TaskNote.self])
                 .environment(\.selectedProject, $selectedProject)
         }
         #endif

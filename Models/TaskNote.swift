@@ -9,13 +9,13 @@ import Foundation
 import SwiftData
 
 @Model
-class TasksNote {
+class TaskNote {
     @Attribute(.unique) let id: UUID
-    var task: ProjectsTask?
+    var task: ProjectTask?
     var note: String
     var author: Person
     
-    init(id: UUID = UUID(), task: ProjectsTask? = nil, note: String, author: Person) {
+    init(id: UUID = UUID(), task: ProjectTask? = nil, note: String, author: Person) {
         self.id = id
         self.task = task
         self.note = note

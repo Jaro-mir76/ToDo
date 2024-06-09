@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct TasksEditView: View {
-    @Binding var task: ProjectsTask
+    @Binding var task: ProjectTask
+    @State private var showTimeWheel = false
     
     var body: some View {
         Form{
@@ -19,32 +20,11 @@ struct TasksEditView: View {
                         .lineLimit(5...10)
                 }
             }
-            Section(header: Text("Priority, Required time")){
-                HStack{
-                    Text("Priority")
-                        .font(.footnote)
-                        .textCase(.uppercase)
-                        .foregroundColor(.gray)
-                    Spacer()
-                    PriorityPicker(selection: $task.priority)
-                }
-                HStack{
-                    Text("ETA:")
-                        .font(.footnote)
-                        .textCase(.uppercase)
-                        .foregroundColor(.gray)
-                    Spacer()
-                    TextField("ETA", value: $task.estimatedImplTimeMinutes, formatter: NumberFormatter())
-                }
-            }
-            Section(header: Text("Due date")){
-                DatePicker(
-                    "Due Date",
-                    selection: $task.dueDate,
-                    displayedComponents: [.date]
-                )
-                .datePickerStyle(.graphical)
-            }
+            Section(){
+                PriorityEditView(priority: $task.priority)
+                TaskDurationPicker(task: $task)
+                DuedateEditView(dueDate: $task.dueDate)
+            }            
         }
     }
 }

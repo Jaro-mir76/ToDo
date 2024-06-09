@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TaskCardView: View {
-    @Bindable var task: ProjectsTask
+    @Bindable var task: ProjectTask
     var isSubGroup: Bool = false
     
     var body: some View {
@@ -45,8 +45,7 @@ struct TaskCardView: View {
                         TimeDurationView(duration: task.realImplTimeMinutes)
                         Spacer()
                         Label("", systemImage: "flag.checkered")
-                        Text(task.estimatedImplTimeMinutes.description)
-                        Text("min.")
+                        Text(task.estimatedImplTimeString)
                     }
                 }
             }

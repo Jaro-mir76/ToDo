@@ -14,14 +14,12 @@
 		4A6F368E2BD57D5B00A41477 /* ErrorWraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36682BD57D5B00A41477 /* ErrorWraper.swift */; };
 		4A6F368F2BD57D5B00A41477 /* isCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36692BD57D5B00A41477 /* isCompleted.swift */; };
 		4A6F36902BD57D5B00A41477 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366A2BD57D5B00A41477 /* Note.swift */; };
-		4A6F36912BD57D5B00A41477 /* ParentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366B2BD57D5B00A41477 /* ParentTask.swift */; };
 		4A6F36922BD57D5B00A41477 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366C2BD57D5B00A41477 /* Person.swift */; };
 		4A6F36932BD57D5B00A41477 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366D2BD57D5B00A41477 /* PreviewSampleData.swift */; };
 		4A6F36942BD57D5B00A41477 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366E2BD57D5B00A41477 /* Priority.swift */; };
 		4A6F36952BD57D5B00A41477 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366F2BD57D5B00A41477 /* Project.swift */; };
-		4A6F36962BD57D5B00A41477 /* ProjectsTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36702BD57D5B00A41477 /* ProjectsTask.swift */; };
-		4A6F36972BD57D5B00A41477 /* SelectedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36712BD57D5B00A41477 /* SelectedProject.swift */; };
-		4A6F36982BD57D5B00A41477 /* TasksNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36722BD57D5B00A41477 /* TasksNote.swift */; };
+		4A6F36962BD57D5B00A41477 /* ProjectTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36702BD57D5B00A41477 /* ProjectTask.swift */; };
+		4A6F36982BD57D5B00A41477 /* TaskNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36722BD57D5B00A41477 /* TaskNote.swift */; };
 		4A6F36992BD57D5B00A41477 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36732BD57D5B00A41477 /* Theme.swift */; };
 		4A6F369C2BD57D5B00A41477 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36772BD57D5B00A41477 /* ErrorView.swift */; };
 		4A6F369D2BD57D5B00A41477 /* NewProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36782BD57D5B00A41477 /* NewProjectView.swift */; };
@@ -42,6 +40,11 @@
 		4A6F36AC2BD57D5B00A41477 /* ThemeViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36872BD57D5B00A41477 /* ThemeViewer.swift */; };
 		4A6F36AD2BD57D5B00A41477 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36882BD57D5B00A41477 /* TrailingIconLabelStyle.swift */; };
 		4A6F36B22BD599B800A41477 /* UTTypeToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36B12BD599B800A41477 /* UTTypeToDo.swift */; };
+		4ADD9F2E2C0CE07300040ACE /* PriorityEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F2D2C0CE07300040ACE /* PriorityEditView.swift */; };
+		4ADD9F302C0CE28B00040ACE /* ThemeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F2F2C0CE28B00040ACE /* ThemeEditView.swift */; };
+		4ADD9F322C0CE35F00040ACE /* DuedateEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F312C0CE35F00040ACE /* DuedateEditView.swift */; };
+		4ADD9F342C0CE69B00040ACE /* TaskDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F332C0CE69B00040ACE /* TaskDuration.swift */; };
+		4ADD9F3A2C150AF800040ACE /* TaskDurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F392C150AF800040ACE /* TaskDurationPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,14 +56,12 @@
 		4A6F36682BD57D5B00A41477 /* ErrorWraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorWraper.swift; sourceTree = "<group>"; };
 		4A6F36692BD57D5B00A41477 /* isCompleted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = isCompleted.swift; sourceTree = "<group>"; };
 		4A6F366A2BD57D5B00A41477 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		4A6F366B2BD57D5B00A41477 /* ParentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTask.swift; sourceTree = "<group>"; };
 		4A6F366C2BD57D5B00A41477 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		4A6F366D2BD57D5B00A41477 /* PreviewSampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		4A6F366E2BD57D5B00A41477 /* Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		4A6F366F2BD57D5B00A41477 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		4A6F36702BD57D5B00A41477 /* ProjectsTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTask.swift; sourceTree = "<group>"; };
-		4A6F36712BD57D5B00A41477 /* SelectedProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedProject.swift; sourceTree = "<group>"; };
-		4A6F36722BD57D5B00A41477 /* TasksNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksNote.swift; sourceTree = "<group>"; };
+		4A6F36702BD57D5B00A41477 /* ProjectTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTask.swift; sourceTree = "<group>"; };
+		4A6F36722BD57D5B00A41477 /* TaskNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskNote.swift; sourceTree = "<group>"; };
 		4A6F36732BD57D5B00A41477 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		4A6F36772BD57D5B00A41477 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		4A6F36782BD57D5B00A41477 /* NewProjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewProjectView.swift; sourceTree = "<group>"; };
@@ -82,6 +83,11 @@
 		4A6F36882BD57D5B00A41477 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
 		4A6F36B02BD57E5D00A41477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Todo/Info.plist; sourceTree = "<group>"; };
 		4A6F36B12BD599B800A41477 /* UTTypeToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTTypeToDo.swift; sourceTree = "<group>"; };
+		4ADD9F2D2C0CE07300040ACE /* PriorityEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityEditView.swift; sourceTree = "<group>"; };
+		4ADD9F2F2C0CE28B00040ACE /* ThemeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEditView.swift; sourceTree = "<group>"; };
+		4ADD9F312C0CE35F00040ACE /* DuedateEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuedateEditView.swift; sourceTree = "<group>"; };
+		4ADD9F332C0CE69B00040ACE /* TaskDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDuration.swift; sourceTree = "<group>"; };
+		4ADD9F392C150AF800040ACE /* TaskDurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDurationPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,14 +127,13 @@
 				4A6F36682BD57D5B00A41477 /* ErrorWraper.swift */,
 				4A6F36692BD57D5B00A41477 /* isCompleted.swift */,
 				4A6F366A2BD57D5B00A41477 /* Note.swift */,
-				4A6F366B2BD57D5B00A41477 /* ParentTask.swift */,
 				4A6F366C2BD57D5B00A41477 /* Person.swift */,
 				4A6F366D2BD57D5B00A41477 /* PreviewSampleData.swift */,
 				4A6F366E2BD57D5B00A41477 /* Priority.swift */,
 				4A6F366F2BD57D5B00A41477 /* Project.swift */,
-				4A6F36702BD57D5B00A41477 /* ProjectsTask.swift */,
-				4A6F36712BD57D5B00A41477 /* SelectedProject.swift */,
-				4A6F36722BD57D5B00A41477 /* TasksNote.swift */,
+				4ADD9F332C0CE69B00040ACE /* TaskDuration.swift */,
+				4A6F36702BD57D5B00A41477 /* ProjectTask.swift */,
+				4A6F36722BD57D5B00A41477 /* TaskNote.swift */,
 				4A3B65EC2BE6DD8C00BE9EA7 /* WorkTime.swift */,
 				4A6F36732BD57D5B00A41477 /* Theme.swift */,
 			);
@@ -143,14 +148,18 @@
 				4A6F36792BD57D5B00A41477 /* NotesCardView.swift */,
 				4A6F367A2BD57D5B00A41477 /* PriorityPicker.swift */,
 				4A6F367B2BD57D5B00A41477 /* PriorityView.swift */,
+				4ADD9F2F2C0CE28B00040ACE /* ThemeEditView.swift */,
 				4A6F367C2BD57D5B00A41477 /* ProjectCardView.swift */,
 				4A6F367D2BD57D5B00A41477 /* ProjectDetailsView.swift */,
 				4A6F367E2BD57D5B00A41477 /* ProjectEditView.swift */,
+				4ADD9F2D2C0CE07300040ACE /* PriorityEditView.swift */,
 				4A6F367F2BD57D5B00A41477 /* ProjectsView.swift */,
+				4ADD9F312C0CE35F00040ACE /* DuedateEditView.swift */,
 				4A6F36802BD57D5B00A41477 /* SubListUnfold.swift */,
 				4A6F36812BD57D5B00A41477 /* TaskCardView.swift */,
 				4A6F36822BD57D5B00A41477 /* TasksDetailsView.swift */,
 				4A6F36832BD57D5B00A41477 /* TasksEditView.swift */,
+				4ADD9F392C150AF800040ACE /* TaskDurationPicker.swift */,
 				4A3B65F02BF03EAD00BE9EA7 /* TimeDurationView.swift */,
 				4A6F36842BD57D5B00A41477 /* TasksListView.swift */,
 				4A3B65EE2BE978CC00BE9EA7 /* SubTasksStatus.swift */,
@@ -239,11 +248,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A6F369E2BD57D5B00A41477 /* NotesCardView.swift in Sources */,
+				4ADD9F322C0CE35F00040ACE /* DuedateEditView.swift in Sources */,
 				4A6F36922BD57D5B00A41477 /* Person.swift in Sources */,
 				4A6F36A02BD57D5B00A41477 /* PriorityView.swift in Sources */,
+				4ADD9F3A2C150AF800040ACE /* TaskDurationPicker.swift in Sources */,
 				4A1C2ABE2BD45B2100820D46 /* TodoApp.swift in Sources */,
 				4A6F36B22BD599B800A41477 /* UTTypeToDo.swift in Sources */,
-				4A6F36972BD57D5B00A41477 /* SelectedProject.swift in Sources */,
+				4ADD9F302C0CE28B00040ACE /* ThemeEditView.swift in Sources */,
 				4A6F36A12BD57D5B00A41477 /* ProjectCardView.swift in Sources */,
 				4A6F368F2BD57D5B00A41477 /* isCompleted.swift in Sources */,
 				4A6F369D2BD57D5B00A41477 /* NewProjectView.swift in Sources */,
@@ -254,17 +265,18 @@
 				4A3B65F12BF03EAD00BE9EA7 /* TimeDurationView.swift in Sources */,
 				4A6F36942BD57D5B00A41477 /* Priority.swift in Sources */,
 				4A6F368E2BD57D5B00A41477 /* ErrorWraper.swift in Sources */,
+				4ADD9F2E2C0CE07300040ACE /* PriorityEditView.swift in Sources */,
 				4A6F36A72BD57D5B00A41477 /* TasksDetailsView.swift in Sources */,
 				4A6F36A82BD57D5B00A41477 /* TasksEditView.swift in Sources */,
 				4A6F36932BD57D5B00A41477 /* PreviewSampleData.swift in Sources */,
-				4A6F36962BD57D5B00A41477 /* ProjectsTask.swift in Sources */,
+				4A6F36962BD57D5B00A41477 /* ProjectTask.swift in Sources */,
 				4A6F36AC2BD57D5B00A41477 /* ThemeViewer.swift in Sources */,
-				4A6F36912BD57D5B00A41477 /* ParentTask.swift in Sources */,
 				4A6F36A32BD57D5B00A41477 /* ProjectEditView.swift in Sources */,
 				4A6F36902BD57D5B00A41477 /* Note.swift in Sources */,
-				4A6F36982BD57D5B00A41477 /* TasksNote.swift in Sources */,
+				4A6F36982BD57D5B00A41477 /* TaskNote.swift in Sources */,
 				4A6F36A52BD57D5B00A41477 /* SubListUnfold.swift in Sources */,
 				4A6F36A42BD57D5B00A41477 /* ProjectsView.swift in Sources */,
+				4ADD9F342C0CE69B00040ACE /* TaskDuration.swift in Sources */,
 				4A6F369F2BD57D5B00A41477 /* PriorityPicker.swift in Sources */,
 				4A6F36AB2BD57D5B00A41477 /* ThemePicker.swift in Sources */,
 				4A6F36AA2BD57D5B00A41477 /* TaskStatusButton.swift in Sources */,

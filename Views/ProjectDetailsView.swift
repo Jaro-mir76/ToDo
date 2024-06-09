@@ -13,7 +13,7 @@ struct ProjectDetailsView: View {
     @State private var editingProject = Project.emptyProject
     @State private var isPresentingEdit = false
     @State var isPresentingNewTask = false
-    @State var parentTask: ProjectsTask?
+    @State var parentTask: ProjectTask?
     
     var body: some View {
         NavigationStack{
@@ -49,21 +49,17 @@ struct ProjectDetailsView: View {
                     HStack{
                         Text("Tasks").foregroundColor(.black)
                         Spacer()
-                    Button(action: {
-                        isPresentingNewTask = true
-                    }, label: {
-//                        Text("Add task").foregroundColor(.black)
-                        Label("", systemImage: "plus.circle.fill")
-                    })
-//                    Button("Add task"){
-//                            isPresentingNewTask = true
-//                        }
+                        Button(action: {
+                            isPresentingNewTask = true
+                        }, label: {
+                            Label("", systemImage: "plus.circle.fill")
+                        })
                     }
                 ){
                     if !project.tasks.isEmpty {
                         TasksListView(activeProject: project, parentTask: nil)
                     } else {
-                        Text("There are no tasks, so lets plan something crazy ;D")
+                        Text("There are no tasks, so lets plan something crazy 🥸")
                     }
                 }
                 .listRowBackground(project.theme.mainColor)
@@ -97,7 +93,7 @@ struct ProjectDetailsView: View {
             }
             .sheet(isPresented: $isPresentingNewTask){
                 NavigationStack{
-                    @State var newtask = ProjectsTask.emptyTask
+                    @State var newtask = ProjectTask.emptyTask
                     TasksEditView(task: $newtask)
                         .navigationTitle("New task")
                         .toolbar {

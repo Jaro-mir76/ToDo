@@ -10,11 +10,11 @@ import SwiftData
 
 struct TasksListView: View {
     var activeProject: Project
-    var parentTask: ProjectsTask?
+    var parentTask: ProjectTask?
     //@Query
-    private var tasks: [ProjectsTask]
+    private var tasks: [ProjectTask]
     
-    init(activeProject: Project, parentTask: ProjectsTask?) {
+    init(activeProject: Project, parentTask: ProjectTask?) {
         //let projectId = activeProject.id      //left to check later @Query etc.
         self.activeProject = activeProject
         //let parentTaskId = parentTask?.id
@@ -76,5 +76,5 @@ struct TasksListView: View {
 }
 
 #Preview {
-    TasksListView(activeProject: Project.sampleProjects[0] ,parentTask: ProjectsTask.emptyTask)
+    TasksListView(activeProject: Project.sampleProjects[0] ,parentTask: ProjectTask.emptyTask)
 }

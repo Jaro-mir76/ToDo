@@ -9,32 +9,51 @@ import Foundation
 import SwiftData
 
 @Model
-class ProjectsTask {
+class ProjectTask {
     @Attribute(.unique) let id: UUID
     var project: Project?
-    var parentTask: ProjectsTask?
+    var parentTask: ProjectTask?
     var taskIsCompleted: Bool
     var taskName: String
     var taskDescryption: String
     var priority: Priority
-    var estimatedImplTimeMinutes: Int
+    var estimatedImplTime: Int // in minutes
+    var estimatedImplTimeMinutes: Int {
+        get {
+            return estimatedImplTime % 60
+        }
+        set {
+            estimatedImplTime = (estimatedImplTime - (estimatedImplTime % 60)) + newValue
+        }
+    }
+    var estimatedImplTimeHours: Int {
+        get {
+            return (estimatedImplTime - (estimatedImplTime % 60)) / 60
+        }
+        set {
+            estimatedImplTime = newValue * 60 + (estimatedImplTime % 60)
+        }
+    }
+    var estimatedImplTimeString: String { // estimated implementation time in form HH:MM
+        return "\(estimatedImplTimeHours < 10 ? "0" : "")\(estimatedImplTimeHours):\(estimatedImplTimeMinutes < 10 ? "0": "")\(estimatedImplTimeMinutes)"
+    }
     var realImplTimeMinutes: Int
     var creationDate: Date
     var dueDate: Date
-    @Relationship(deleteRule: .cascade, inverse: \ProjectsTask.parentTask) var subTask: [ProjectsTask]
+    @Relationship(deleteRule: .cascade, inverse: \ProjectTask.parentTask) var subTask: [ProjectTask]
     var subTaskUnfold: Bool
-    @Relationship(deleteRule: .cascade, inverse: \TasksNote.task) var notes: [TasksNote]
+    @Relationship(deleteRule: .cascade, inverse: \TaskNote.task) var notes: [TaskNote]
     var tasksCount: Int
     var tasksCompleted: Int
     
-    init(id: UUID = UUID(), project: Project? = nil, isCompleted: Bool, name: String, description: String, priority: Priority, estimatedImplTimeMinutes: Int, realImplTimeMinutes: Int, creationDate: Date, dueDate: Date, subTask: [ProjectsTask] = [], subTaskUnfold: Bool, notes: [TasksNote] = []) {
+    init(id: UUID = UUID(), project: Project? = nil, isCompleted: Bool, name: String, description: String, priority: Priority, estimatedImplTimeMinutes: Int, realImplTimeMinutes: Int, creationDate: Date, dueDate: Date, subTask: [ProjectTask] = [], subTaskUnfold: Bool, notes: [TaskNote] = []) {
         self.id = id
         self.project = project
         self.taskIsCompleted = false
         self.taskName = name
         self.taskDescryption = description
         self.priority = priority
-        self.estimatedImplTimeMinutes = estimatedImplTimeMinutes
+        self.estimatedImplTime = estimatedImplTimeMinutes
         self.realImplTimeMinutes = realImplTimeMinutes
         self.creationDate = creationDate
         self.dueDate = dueDate
@@ -55,7 +74,7 @@ class ProjectsTask {
         }
     }
     
-    func countTasks(_ projectTasks: [ProjectsTask]) -> () {
+    func countTasks(_ projectTasks: [ProjectTask]) -> () {
         for ta in projectTasks{
             if !ta.subTask.isEmpty{
                 countTasks(ta.subTask)
@@ -69,7 +88,7 @@ class ProjectsTask {
         }
     }
     
-    func copyTask (to: ProjectsTask) -> () {
+    func copyTask (to: ProjectTask) -> () {
 //        to.project = project          ---> to be confirmed if after editing task no unassigned task is saved in the file
 //        to.parentTask = parentTask
         
@@ -77,13 +96,13 @@ class ProjectsTask {
         to.taskName = taskName
         to.taskDescryption = taskDescryption
         to.priority = priority
-        to.estimatedImplTimeMinutes = estimatedImplTimeMinutes
+        to.estimatedImplTime = estimatedImplTime
         to.realImplTimeMinutes = realImplTimeMinutes
         to.creationDate = creationDate
         to.dueDate = dueDate
     }
     
-    static var emptyTask: ProjectsTask{
-        ProjectsTask(isCompleted: false, name: "", description: "", priority: .medium, estimatedImplTimeMinutes: 0, realImplTimeMinutes: 0, creationDate: Date(), dueDate: Date(), subTask: [], subTaskUnfold: false, notes: [])
+    static var emptyTask: ProjectTask{
+        ProjectTask(isCompleted: false, name: "", description: "", priority: .medium, estimatedImplTimeMinutes: 0, realImplTimeMinutes: 0, creationDate: Date(), dueDate: Date(), subTask: [], subTaskUnfold: false, notes: [])
     }
 }

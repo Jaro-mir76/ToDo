@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProjectEditView: View {
     @Binding var project: Project
+    @State private var showDatePicker = false
     
     var body: some View {
         Form{
@@ -19,30 +20,9 @@ struct ProjectEditView: View {
                         .lineLimit(5...10)
                 }
             }
-            HStack{
-                Text("Priority")
-                    .font(.footnote)
-                    .textCase(.uppercase)
-                    .foregroundColor(.gray)
-                Spacer()
-                PriorityPicker(selection: $project.priority)
-            }
-            HStack{
-                Text("Theme")
-                    .font(.footnote)
-                    .textCase(.uppercase)
-                    .foregroundColor(.gray)
-                Spacer()
-                ThemePicker(selection: $project.theme)
-            }
-            Section(header: Text("Due date")){
-                    DatePicker(
-                            "Due Date",
-                            selection: $project.dueDate,
-                            displayedComponents: [.date]
-                        )
-                        .datePickerStyle(.graphical)
-                }
+            PriorityEditView(priority: $project.priority)
+            ThemeEditView(theme: $project.theme)
+            DuedateEditView(dueDate: $project.dueDate)
         }
     }
 }

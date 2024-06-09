@@ -16,12 +16,12 @@ class Project {
     var priority: Priority
     var dueDate: Date
     var isCompleted: isCompleted
-    @Relationship(deleteRule: .cascade, inverse: \ProjectsTask.project) var tasks: [ProjectsTask]
+    @Relationship(deleteRule: .cascade, inverse: \ProjectTask.project) var tasks: [ProjectTask]
     var theme: Theme
     var tasksCount: Int
     var tasksCompleted: Int
     
-    init(id: UUID = UUID(), projName: String, projDescription: String, priority: Priority, dueDate: Date, isCompleted: isCompleted, tasks: [ProjectsTask] = [], theme: Theme) {
+    init(id: UUID = UUID(), projName: String, projDescription: String, priority: Priority, dueDate: Date, isCompleted: isCompleted, tasks: [ProjectTask] = [], theme: Theme) {
         self.id = id
         self.projName = projName
         self.projDescription = projDescription
@@ -43,7 +43,7 @@ class Project {
         }
     }
     
-    func countTasks(_ projectTasks: [ProjectsTask]) -> () {
+    func countTasks(_ projectTasks: [ProjectTask]) -> () {
         for ta in projectTasks{
             if !ta.subTask.isEmpty{
                 ta.updateStats()
@@ -80,7 +80,7 @@ extension Project {
             dueDate: Date(),
             isCompleted: .notCompleted,
             tasks: [
-                ProjectsTask(isCompleted: false,
+                ProjectTask(isCompleted: false,
                             name: "Gather theoretical knowledge",
                             description: "Study materials on apple page for developers",
                             priority: .critical,
@@ -92,10 +92,10 @@ extension Project {
                             subTask: [],
                             subTaskUnfold: false,
                             notes: [
-                                        TasksNote(note: "I face some problems, materials on web are a bit outdated",
+                                        TaskNote(note: "I face some problems, materials on web are a bit outdated",
                                                 author: Person(name: "Adam")
                                                ),
-                                        TasksNote(note: "...slowely going there",
+                                        TaskNote(note: "...slowely going there",
                                                 author: Person(name: "Adam")
                                                )
                                 ]

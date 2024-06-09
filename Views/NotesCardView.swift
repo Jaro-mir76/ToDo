@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NotesCardView: View {
-    let notes: TasksNote
+    let notes: TaskNote
     
     var body: some View {
         VStack (alignment: .leading){
