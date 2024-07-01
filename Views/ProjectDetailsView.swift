@@ -10,13 +10,52 @@ import SwiftData
 
 struct ProjectDetailsView: View {
     @Bindable var project: Project
+    
+//    let projectId: UUID
+//    @Query private var projects: [Project]
+//    @Bindable
+    
+//    private var project: Project
+    
     @State private var editingProject = Project.emptyProject
     @State private var isPresentingEdit = false
-    @State var isPresentingNewTask = false
-    @State var parentTask: ProjectTask?
+//    @State var isPresentingNewTask = false
+//    @State var parentTask: ProjectTask?
+    @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject var stateManager: StateManager
+    
+//    init(projectId: UUID) {
+//        self.projectId = projectId
+//        
+////        let fetchDescriptor = FetchDescriptor<Project>(predicate: #Predicate{$0.id == projectId})
+//        
+////        if let proj = projects.first(where: {$0.id == projectId}){
+//            
+////        if let project = projects.first(FetchDescriptor){
+////            self.project = proj
+////        }
+//        
+////        let fetchDescriptor = FetchDescriptor<Project>(predicate: #Predicate{$0.id == projectId})
+//        
+//        if let project = projects.first(where: {$0.id == projectId}){
+//            self.project = project
+//        } else {
+//            self.project = Project.emptyProject
+//        }
+//        
+//    }
     
     var body: some View {
-        NavigationStack{
+        
+//        var project = projects.first(where: {$0.id == projectId})!
+//        project = prj
+        
+//        let _ = print("ProjectDetailsView - nav path count \(stateManager.navigationPath.count)")
+//        let _ = print("proj name \(project.projName)")
+//        Text (project.projName)
+//        Text (project.projDescription)
+        
+//        NavigationStack{
             List{
                 Section(header: Text("Project info").foregroundColor(.black)){
                     VStack(alignment: .leading ){
@@ -50,7 +89,7 @@ struct ProjectDetailsView: View {
                         Text("Tasks").foregroundColor(.black)
                         Spacer()
                         Button(action: {
-                            isPresentingNewTask = true
+                            stateManager.isPresentingNewTask = true
                         }, label: {
                             Label("", systemImage: "plus.circle.fill")
                         })
@@ -91,7 +130,7 @@ struct ProjectDetailsView: View {
                     }
                 }
             }
-            .sheet(isPresented: $isPresentingNewTask){
+            .sheet(isPresented: $stateManager.isPresentingNewTask){
                 NavigationStack{
                     @State var newtask = ProjectTask.emptyTask
                     TasksEditView(task: $newtask)
@@ -99,28 +138,32 @@ struct ProjectDetailsView: View {
                         .toolbar {
                             ToolbarItem(placement: .cancellationAction){
                                 Button("Cancel", action: {
-                                    isPresentingNewTask = false
+                                    stateManager.isPresentingNewTask = false
                                     }
                                 )
                             }
                             ToolbarItem(placement: .confirmationAction){
                                 Button("Add", action: {
                                         newtask.project = project
-                                        newtask.parentTask = parentTask
+                                    newtask.parentTask = stateManager.parentTask
                                         project.tasks.append(newtask)
                                         project.updateStats()
-                                        isPresentingNewTask = false
+                                    stateManager.isPresentingNewTask = false
                                     }
                                 )
                             }
                         }
                 }
             }
-        }
-        .onAppear(perform: {project.updateStats()})
+//        }
+            .onAppear(perform: {
+                project.updateStats()
+                stateManager.activeProject = project
+                stateManager.parentTask = nil
+            })
     }
 }
 
 #Preview {
-    ProjectDetailsView(project: Project.sampleProjects[0])
+    ProjectDetailsView(project: Project.emptyProject)
 }

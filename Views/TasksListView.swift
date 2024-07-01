@@ -13,6 +13,9 @@ struct TasksListView: View {
     var parentTask: ProjectTask?
     //@Query
     private var tasks: [ProjectTask]
+    @Environment(\.modelContext) private var modelContex
+    
+    @Query private var forToday: [ForToday]
     
     init(activeProject: Project, parentTask: ProjectTask?) {
         //let projectId = activeProject.id      //left to check later @Query etc.
@@ -33,9 +36,10 @@ struct TasksListView: View {
     
     var body: some View {
         ForEach(tasks, id: \.id){ task in
+
             switch task.subTask.isEmpty {
             case true:
-                NavigationLink(destination: TasksDetailsView(activeProject: activeProject, parentTask: task, task: task)){
+                NavigationLink(value: task){
                     TaskCardView(task: task)
                         .swipeActions(edge: .leading, allowsFullSwipe: false){
                             Button {
@@ -44,8 +48,33 @@ struct TasksListView: View {
                             } label: {
                                 Label(task.taskIsCompleted ? "Incomplete" : "Complete", systemImage: task.taskIsCompleted ? "checkmark.gobackward" : "checkmark.circle")
                             }
+                            .tint(.green)
+                            
+                            Button {
+                                let taskid = task.id
+                                let fetchDescriptor = FetchDescriptor<ForToday>(predicate: #Predicate{$0.taskId == taskid}
+                                )
+                                do {
+                                    let ile = try modelContex.fetchCount(fetchDescriptor)
+                                    if ile == 0 {
+                                        let projName = activeProject.projName   // because of unknow reason I couldn't use "activeProject.projName" to pass project name as argument below
+                                        
+                                        @State var newTask4Today = ForToday(today: Date(), taskId: task.id, taskName: task.taskName, projName: projName)
+                                        modelContex.insert(newTask4Today)
+                                    }
+                                    print("how many times is it there: \(ile)")
+//                                }
+                                } catch {
+                                    print("Upss, we have some problem with counting tasks on ForToday list")
+                                }
+                                
+                                
+                            } label: {
+                                Label("For today", systemImage:  "note.text.badge.plus")
+                            }
+                            .tint(.yellow)
                         }
-                        .tint(.green)
+                        
                         .swipeActions(edge: .trailing, allowsFullSwipe: false){
                             Button(role: .destructive) {
                                 if let context = task.modelContext {
@@ -57,14 +86,21 @@ struct TasksListView: View {
                             }
                         }
                 }
+                .navigationDestination(for: ProjectTask.self){task in
+                    TasksDetailsView(task: task)
+                }
             case false:
                 @Bindable var task = task
                 HStack {
                     VStack (alignment: .leading){
-                        NavigationLink(destination: TasksDetailsView(activeProject: activeProject, parentTask: task, task: task)){
+                        NavigationLink(value: task){
                             TaskCardView(task: task)
                         }
                     }
+                    
+                }
+                .navigationDestination(for: ProjectTask.self){task in
+                    TasksDetailsView(task: task)
                 }
                 if task.subTaskUnfold {
                     TasksListView(activeProject: activeProject, parentTask: task)

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TasksDetailsView: View {
-    var activeProject: Project
-    var parentTask: ProjectTask?
+//    var activeProject: Project
+//    var parentTask: ProjectTask?
     @Bindable var task: ProjectTask
     @State private var editingTask = ProjectTask.emptyTask
     @State private var isPresentingEdit = false
@@ -17,9 +17,10 @@ struct TasksDetailsView: View {
     @State private var newNote = ""
     @StateObject var workTime = WorkTime()
     @Environment(\.scenePhase) var scenePhase
+    @EnvironmentObject var stateManager: StateManager
     
     var body: some View {
-        NavigationStack{
+//        NavigationStack{
             HStack{
                 if !task.subTask.isEmpty {
                     SubTasksStatus(task: task)
@@ -34,7 +35,7 @@ struct TasksDetailsView: View {
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
             .lineLimit(1)
             List{
-                Section(header: Text("Tasks details")){
+                Section(header: Text("Task details")){
                     VStack(alignment: .leading){
                         Text(task.taskDescryption)
                         HStack{
@@ -54,7 +55,7 @@ struct TasksDetailsView: View {
                         }
                     }
                 }
-                .listRowBackground(activeProject.theme.mainColor)
+                .listRowBackground(stateManager.activeProject?.theme.mainColor)
                 Section(header: Text("Notes")){
                     if !task.notes.isEmpty {
                         ForEach(task.notes){note in
@@ -62,7 +63,7 @@ struct TasksDetailsView: View {
                         }
                     }
                 }
-                .listRowBackground(activeProject.theme.mainColor)
+                .listRowBackground(stateManager.activeProject?.theme.mainColor)
                 HStack {
                     TextField("New note", text: $newNote)
                     Button(action: {
@@ -77,10 +78,10 @@ struct TasksDetailsView: View {
                     }
                     .disabled(newNote.isEmpty)
                 }
-                .listRowBackground(activeProject.theme.mainColor)
+                .listRowBackground(stateManager.activeProject?.theme.mainColor)
                 Section(header:
                     HStack{
-                        Text("Tasks")
+                        Text("Subtasks")
                         Spacer()
                         Button(action: {
                             isPresentingNewTask = true
@@ -90,12 +91,12 @@ struct TasksDetailsView: View {
                     }
                 ){
                     if !task.subTask.isEmpty {
-                        TasksListView(activeProject: activeProject, parentTask: task)
+                        TasksListView(activeProject: stateManager.activeProject!, parentTask: stateManager.parentTask)
                     } else {
                         Text("There are no subtasks, so lets plan something 🤓")
                     }
                 }
-                .listRowBackground(activeProject.theme.mainColor)
+                .listRowBackground(stateManager.activeProject?.theme.mainColor)
             }
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             .toolbar{
@@ -142,10 +143,10 @@ struct TasksDetailsView: View {
                             }
                             ToolbarItem(placement: .confirmationAction){
                                 Button("Add") {
-                                    newtask.project = activeProject
-                                    newtask.parentTask = parentTask
+                                    newtask.project = stateManager.activeProject
+                                    newtask.parentTask = stateManager.parentTask
                                     task.subTask.append(newtask)
-                                    activeProject.updateStats()
+                                    stateManager.activeProject?.updateStats()
                                     isPresentingNewTask = false
                                 }
                             }
@@ -158,7 +159,7 @@ struct TasksDetailsView: View {
                     workTime.running = task.subTask.isEmpty
                 }
             }
-        }
+        
         .onAppear(){
             if task.subTask.isEmpty {
                 startTimer()
@@ -170,7 +171,7 @@ struct TasksDetailsView: View {
             stopTimer()
         }
         .onChange(of: task.taskIsCompleted){
-            workTime.running = task.taskIsCompleted ? false : true
+            workTime.running = task.taskIsCompleted ? false : true  //stope timer if tasks is completed or start if was uncompleted
         }
         .onChange(of: scenePhase) {
             if scenePhase == .active {
@@ -188,10 +189,10 @@ struct TasksDetailsView: View {
     func stopTimer(){
         workTime.stopTimer()
         task.realImplTimeMinutes = workTime.workingTime
-        parentTask?.updateStats()
+        stateManager.parentTask?.updateStats()
     }
 }
 
 #Preview {
-    return TasksDetailsView(activeProject: Project.sampleProjects[0], parentTask: ProjectTask.emptyTask ,task: (Project.sampleProjects[0].tasks[0]))
+    return TasksDetailsView(task: (Project.sampleProjects[0].tasks[0]))
 }

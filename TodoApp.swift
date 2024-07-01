@@ -9,17 +9,19 @@ import SwiftUI
 
 @main
 struct TodoApp: App {
+    @StateObject var stateManager = StateManager()
     
     var body: some Scene {
         #if os(iOS) || os(macOS)
-        DocumentGroup(editing: [Project.self, ProjectTask.self, TaskNote.self], contentType: .todoData){
-            ProjectsView()
+        DocumentGroup(editing: [Project.self, ProjectTask.self, TaskNote.self, ForToday.self], contentType: .todoData){
+            HomeView()
+                .environmentObject(stateManager)
         }
         #else
         WindowGroup {
-            ProjectsView()
-                .modelContainer(for: [Project.self, ProjectTask.self, TaskNote.self])
-                .environment(\.selectedProject, $selectedProject)
+            HomeView()
+                .modelContainer(for: [Project.self, ProjectTask.self, TaskNote.self, ForToday.self])
+                .environmentObject(stateManager)
         }
         #endif
     }

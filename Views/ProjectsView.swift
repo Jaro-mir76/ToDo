@@ -10,15 +10,14 @@ import SwiftData
 
 struct ProjectsView: View {
     @Query private var projects: [Project]
-    @State private var isPresentingNewProjectView = false
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject var stateManager: StateManager
     
     var body: some View {
-        
-        NavigationStack{
+        NavigationStack(path: $stateManager.navigationPath){
             VStack {
                 List(projects){ project in
-                    NavigationLink(destination: ProjectDetailsView(project: project)){
+                    NavigationLink(value: project){
                         ProjectCardView(project: project)
                             .swipeActions(edge: .trailing, allowsFullSwipe: false){
                                 Button(role: .destructive) {
@@ -32,34 +31,37 @@ struct ProjectsView: View {
                     }
                     .listRowBackground(project.theme.mainColor)
                 }
-                .navigationTitle("Project list")
-                .toolbar {
-                    Button(action: {
-                        isPresentingNewProjectView = true
-                    }) {
-                        Image(systemName: "plus")
-                    }
-                    .accessibilityLabel("New project")
-                }
             }
-            .sheet(isPresented: $isPresentingNewProjectView) {
+            .navigationDestination(for: Project.self){ project in
+                ProjectDetailsView(project: project)
+            }
+            .navigationTitle("Project list")
+            .toolbar {
+                Button(action: {
+                    stateManager.isPresentingNewProjectView = true
+                }) {
+                    Image(systemName: "plus")
+                }
+                .accessibilityLabel("New project")
+            }
+            .sheet(isPresented: $stateManager.isPresentingNewProjectView) {
                 NavigationStack{
                     @State var newProject = Project.emptyProject
                     ProjectEditView(project: $newProject)
-                        .navigationTitle("New project")
-                        .toolbar {
-                            ToolbarItem(placement: .cancellationAction){
-                                Button("Cancel"){
-                                    isPresentingNewProjectView = false
-                                }
-                            }
-                            ToolbarItem(placement: .confirmationAction){
-                                Button("Add"){
-                                    modelContext.insert(newProject)
-                                    isPresentingNewProjectView = false
-                                }
+                    .navigationTitle("New project")
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction){
+                            Button("Cancel"){
+                                stateManager.isPresentingNewProjectView = false
                             }
                         }
+                        ToolbarItem(placement: .confirmationAction){
+                            Button("Add"){
+                                modelContext.insert(newProject)
+                                stateManager.isPresentingNewProjectView = false
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -69,4 +71,5 @@ struct ProjectsView: View {
 #Preview {
     ProjectsView()
         .modelContainer(previewContainer)
+        .environmentObject(StateManager())
 }
