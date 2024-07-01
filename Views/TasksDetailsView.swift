@@ -159,27 +159,27 @@ struct TasksDetailsView: View {
                     workTime.running = task.subTask.isEmpty
                 }
             }
-        
-        .onAppear(){
-            if task.subTask.isEmpty {
-                startTimer()
-                workTime.running = task.taskIsCompleted ? false : true
+            .onAppear(){
+                stateManager.parentTask = task
+                if task.subTask.isEmpty {
+                    startTimer()
+                    workTime.running = task.taskIsCompleted ? false : true
+                }
+                workTime.workingTime = task.realImplTimeMinutes
             }
-            workTime.workingTime = task.realImplTimeMinutes
-        }
-        .onDisappear(){
-            stopTimer()
-        }
-        .onChange(of: task.taskIsCompleted){
-            workTime.running = task.taskIsCompleted ? false : true  //stope timer if tasks is completed or start if was uncompleted
-        }
-        .onChange(of: scenePhase) {
-            if scenePhase == .active {
-                workTime.running = true
-            } else {
-                workTime.running = false
+            .onDisappear(){
+                stopTimer()
             }
-        }
+            .onChange(of: task.taskIsCompleted){
+                workTime.running = task.taskIsCompleted ? false : true  //stope timer if tasks is completed or start if was uncompleted
+            }
+            .onChange(of: scenePhase) {
+                if scenePhase == .active {
+                    workTime.running = true
+                } else {
+                    workTime.running = false
+                }
+            }
     }
     
     func startTimer(){

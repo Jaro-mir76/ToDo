@@ -14,6 +14,7 @@ struct TasksListView: View {
     //@Query
     private var tasks: [ProjectTask]
     @Environment(\.modelContext) private var modelContex
+    @EnvironmentObject var stateManager: StateManager
     
     @Query private var forToday: [ForToday]
     
