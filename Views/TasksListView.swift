@@ -52,15 +52,17 @@ struct TasksListView: View {
                             .tint(.green)
                             
                             Button {
-                                let taskid = task.id
-                                let fetchDescriptor = FetchDescriptor<ForToday>(predicate: #Predicate{$0.taskId == taskid}
+                                let taskId = task.id
+                                let fetchDescriptor = FetchDescriptor<ForToday>(predicate: #Predicate{$0.task.id == taskId}
                                 )
                                 do {
                                     let ile = try modelContex.fetchCount(fetchDescriptor)
                                     if ile == 0 {
-                                        let projName = activeProject.projName   // because of unknow reason I couldn't use "activeProject.projName" to pass project name as argument below
+//                                        let task = task
+//                                        let projName = activeProject.projName   // because of unknow reason I couldn't use "activeProject.projName" to pass project name as argument below
                                         
-                                        @State var newTask4Today = ForToday(today: Date(), taskId: task.id, taskName: task.taskName, projName: projName)
+//                                        @State var newTask4Today = ForToday(today: Date(), taskId: task.id, taskName: task.taskName, projName: projName)
+                                        @State var newTask4Today = ForToday(today: Date(), task: task)
                                         modelContex.insert(newTask4Today)
                                     }
                                     print("how many times is it there: \(ile)")

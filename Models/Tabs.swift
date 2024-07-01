@@ -8,8 +8,8 @@
 import Foundation
 
 enum Tabs: String, Identifiable, Hashable, Equatable {
-    case home = "Home"
-    case tasks4today = "Today"
+    case home = "Projects"
+    case tasks4today = "For today"
     case quickNote = "Quick note"
     
     var id: String {

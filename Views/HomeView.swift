@@ -9,33 +9,31 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
-    @State private var selectedTab: Tabs = .home
+//    @State private var selectedTab: Int = 2
     @Query private var tasksForToday: [ForToday]
     @EnvironmentObject var stateManager: StateManager
     
     var body: some View {
-        TabView(selection: $selectedTab) {
+        TabView(selection: $stateManager.selectedTab) {
             ProjectsView()
-                .tabItem { Label("Projects", systemImage: "house") }
+                .tabItem { Label("Projects", systemImage: "house")}
                 .tag(1)
             
             ForTodayView()
-                .tabItem {
-                Label("For today", systemImage: "checklist")
-            }
-            .tag(2)
+                .tabItem { Label("For today", systemImage: "checklist")}
+                .tag(2)
 //            .frame(height: 200)
 //            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
-            .badge(tasksForToday.count)
+                .badge(tasksForToday.count)
             
-            Text("Tab Content 3").tabItem { Label("Quick note", systemImage: "pencil.and.list.clipboard") }
+            Text("Tab Content 3")
+                .tabItem { Label("Quick note", systemImage: "pencil.and.list.clipboard")}
                 .tag(3)
                 .badge(stateManager.navigationPath.count)
         }
     }
 }
 
-//#Preview {
-//    HomeView()
-//        
-//}
+#Preview {
+    HomeView()
+}

@@ -12,16 +12,18 @@ import SwiftData
 class ForToday {
     @Attribute(.unique) let id: UUID
     var today: Date
-    var taskId: UUID
-    var taskName: String
-    var projectName: String
+    var task: ProjectTask
+//    var taskId: UUID
+//    var taskName: String
+//    var projectName: String
     
-    init(id: UUID = UUID(), today: Date, taskId: UUID, taskName: String, projName: String) {
+    init(id: UUID = UUID(), today: Date, task: ProjectTask) {
         self.id = id
         self.today = today
-        self.taskId = taskId
-        self.taskName = taskName
-        self.projectName = projName
+        self.task = task
+//        self.taskId = taskId
+//        self.taskName = taskName
+//        self.projectName = projName
     }
     
 //    func numberOfTasksForToday () -> Int{

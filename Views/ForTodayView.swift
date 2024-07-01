@@ -10,8 +10,10 @@ import SwiftData
 
 struct ForTodayView: View {
     @Query private var forToday: [ForToday]
+    @EnvironmentObject var stateManager: StateManager
+    
     var body: some View {
-        List{
+        List {
             Section(header:
                         HStack{
                 Text("Tasks for today").foregroundColor(.black)
@@ -24,22 +26,35 @@ struct ForTodayView: View {
             }
             ){
                 ForEach(forToday){task in
-                    VStack(alignment: .leading){
-                        Text("\(task.taskName)")
-                        Spacer()
-                        Text("\(task.projectName)")
-                            .font(.footnote)
-                    }
-                    .swipeActions(edge: .trailing, allowsFullSwipe: false){
-                        Button(role: .destructive) {
-                            if let context = task.modelContext {
-                                context.delete(task)
+//                    NavigationLink(value: task){
+                        VStack(alignment: .leading){
+                            Button {
+                                
+                                stateManager.navigationPath.append(task)
+                                stateManager.selectedTab = 1
                             }
-                        } label: {
-                            Label("Delete", systemImage: "trash.fill")
+                            label: {
+                                Text("\(task.task.taskName)")
+                                Spacer()
+                                Text("\(task.task.project!.projName)")
+                                    .font(.footnote)
+                            }
+                            
                         }
-                    }
+                        .swipeActions(edge: .trailing, allowsFullSwipe: false){
+                            Button(role: .destructive) {
+                                if let context = task.modelContext {
+                                    context.delete(task)
+                                }
+                            } label: {
+                                Label("Delete", systemImage: "trash.fill")
+                            }
+                        }
+//                    }
                 }
+//                .navigationDestination(for: ProjectTask.self){ task in
+//                        TasksDetailsView(task: task)
+//                }
             }
         }
     }

@@ -40,7 +40,7 @@
 		4A6F36AC2BD57D5B00A41477 /* ThemeViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36872BD57D5B00A41477 /* ThemeViewer.swift */; };
 		4A6F36AD2BD57D5B00A41477 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36882BD57D5B00A41477 /* TrailingIconLabelStyle.swift */; };
 		4A6F36B22BD599B800A41477 /* UTTypeToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36B12BD599B800A41477 /* UTTypeToDo.swift */; };
-		4A7149B82C1EE5430025FE78 /* HomeTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149B72C1EE5430025FE78 /* HomeTabs.swift */; };
+		4A7149B82C1EE5430025FE78 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149B72C1EE5430025FE78 /* Tabs.swift */; };
 		4A7149BA2C1EE8B70025FE78 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149B92C1EE8B70025FE78 /* HomeView.swift */; };
 		4A7149C02C223EF60025FE78 /* ForTodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149BF2C223EF60025FE78 /* ForTodayView.swift */; };
 		4A7149C22C223F880025FE78 /* ForToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149C12C223F880025FE78 /* ForToday.swift */; };
@@ -91,7 +91,7 @@
 		4A6F36882BD57D5B00A41477 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
 		4A6F36B02BD57E5D00A41477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Todo/Info.plist; sourceTree = "<group>"; };
 		4A6F36B12BD599B800A41477 /* UTTypeToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTTypeToDo.swift; sourceTree = "<group>"; };
-		4A7149B72C1EE5430025FE78 /* HomeTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabs.swift; sourceTree = "<group>"; };
+		4A7149B72C1EE5430025FE78 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		4A7149B92C1EE8B70025FE78 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4A7149BF2C223EF60025FE78 /* ForTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForTodayView.swift; sourceTree = "<group>"; };
 		4A7149C12C223F880025FE78 /* ForToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForToday.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 				4A6F36702BD57D5B00A41477 /* ProjectTask.swift */,
 				4A7149C12C223F880025FE78 /* ForToday.swift */,
 				4A6F36722BD57D5B00A41477 /* TaskNote.swift */,
-				4A7149B72C1EE5430025FE78 /* HomeTabs.swift */,
+				4A7149B72C1EE5430025FE78 /* Tabs.swift */,
 				4A3B65EC2BE6DD8C00BE9EA7 /* WorkTime.swift */,
 				4A6F36732BD57D5B00A41477 /* Theme.swift */,
 			);
@@ -280,7 +280,7 @@
 				4A1C2ABE2BD45B2100820D46 /* TodoApp.swift in Sources */,
 				4A6F36B22BD599B800A41477 /* UTTypeToDo.swift in Sources */,
 				4ADD9F302C0CE28B00040ACE /* ThemeEditView.swift in Sources */,
-				4A7149B82C1EE5430025FE78 /* HomeTabs.swift in Sources */,
+				4A7149B82C1EE5430025FE78 /* Tabs.swift in Sources */,
 				4A6F36A12BD57D5B00A41477 /* ProjectCardView.swift in Sources */,
 				4A6F368F2BD57D5B00A41477 /* isCompleted.swift in Sources */,
 				4A6F369D2BD57D5B00A41477 /* NewProjectView.swift in Sources */,
