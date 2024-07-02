@@ -89,9 +89,9 @@ struct TasksListView: View {
                             }
                         }
                 }
-                .navigationDestination(for: ProjectTask.self){task in
-                    TasksDetailsView(task: task)
-                }
+//                .navigationDestination(for: ProjectTask.self){task in
+//                    TasksDetailsView(task: task)
+//                }
             case false:
                 @Bindable var task = task
                 HStack {
@@ -102,9 +102,9 @@ struct TasksListView: View {
                     }
                     
                 }
-                .navigationDestination(for: ProjectTask.self){task in
-                    TasksDetailsView(task: task)
-                }
+//                .navigationDestination(for: ProjectTask.self){task in
+//                    TasksDetailsView(task: task)
+//                }
                 if task.subTaskUnfold {
                     TasksListView(activeProject: activeProject, parentTask: task)
                     .padding(.leading, 30)

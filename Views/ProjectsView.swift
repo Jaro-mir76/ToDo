@@ -35,6 +35,9 @@ struct ProjectsView: View {
             .navigationDestination(for: Project.self){ project in
                 ProjectDetailsView(project: project)
             }
+            .navigationDestination(for: ProjectTask.self){task in
+                TasksDetailsView(task: task)
+            }
             .navigationTitle("Project list")
             .toolbar {
                 Button(action: {

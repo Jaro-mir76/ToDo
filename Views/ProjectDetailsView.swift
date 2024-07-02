@@ -9,53 +9,14 @@ import SwiftUI
 import SwiftData
 
 struct ProjectDetailsView: View {
+    
     @Bindable var project: Project
-    
-//    let projectId: UUID
-//    @Query private var projects: [Project]
-//    @Bindable
-    
-//    private var project: Project
-    
     @State private var editingProject = Project.emptyProject
     @State private var isPresentingEdit = false
-//    @State var isPresentingNewTask = false
-//    @State var parentTask: ProjectTask?
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject var stateManager: StateManager
     
-//    init(projectId: UUID) {
-//        self.projectId = projectId
-//        
-////        let fetchDescriptor = FetchDescriptor<Project>(predicate: #Predicate{$0.id == projectId})
-//        
-////        if let proj = projects.first(where: {$0.id == projectId}){
-//            
-////        if let project = projects.first(FetchDescriptor){
-////            self.project = proj
-////        }
-//        
-////        let fetchDescriptor = FetchDescriptor<Project>(predicate: #Predicate{$0.id == projectId})
-//        
-//        if let project = projects.first(where: {$0.id == projectId}){
-//            self.project = project
-//        } else {
-//            self.project = Project.emptyProject
-//        }
-//        
-//    }
-    
     var body: some View {
-        
-//        var project = projects.first(where: {$0.id == projectId})!
-//        project = prj
-        
-//        let _ = print("ProjectDetailsView - nav path count \(stateManager.navigationPath.count)")
-//        let _ = print("proj name \(project.projName)")
-//        Text (project.projName)
-//        Text (project.projDescription)
-        
-//        NavigationStack{
             List{
                 Section(header: Text("Project info").foregroundColor(.black)){
                     VStack(alignment: .leading ){
@@ -102,7 +63,6 @@ struct ProjectDetailsView: View {
                     }
                 }
                 .listRowBackground(project.theme.mainColor)
-//                .foregroundColor(project.theme.accentColor)
             }
             .navigationTitle(project.projName)
             .toolbar{
@@ -155,12 +115,11 @@ struct ProjectDetailsView: View {
                         }
                 }
             }
-//        }
-            .onAppear(perform: {
+            .onAppear(){
                 project.updateStats()
                 stateManager.activeProject = project
                 stateManager.parentTask = nil
-            })
+            }
     }
 }
 

@@ -20,7 +20,6 @@ struct TasksDetailsView: View {
     @EnvironmentObject var stateManager: StateManager
     
     var body: some View {
-//        NavigationStack{
             HStack{
                 if !task.subTask.isEmpty {
                     SubTasksStatus(task: task)
@@ -31,6 +30,15 @@ struct TasksDetailsView: View {
                     .font(.title2)
                     .fontWeight(.bold)
                 Spacer()
+                Button {
+                    stateManager.selectedTab = 1
+                    stateManager.navigationPath = NavigationPath()
+                    stateManager.navigationPathTab2 = NavigationPath()
+                    stateManager.navigationPath.append(task.project!)
+                }
+                label: {
+                Text ("Go to Project")
+                }
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
             .lineLimit(1)
@@ -91,7 +99,10 @@ struct TasksDetailsView: View {
                     }
                 ){
                     if !task.subTask.isEmpty {
-                        TasksListView(activeProject: stateManager.activeProject!, parentTask: stateManager.parentTask)
+//                        let _ = {stateManager.activeProject = task.project!}()
+//                        let _ = print("task name \(task.taskName)")
+//                        let _ = print("active project from taks \(task.project?.projName)")
+                        TasksListView(activeProject: task.project!, parentTask: task)
                     } else {
                         Text("There are no subtasks, so lets plan something 🤓")
                     }
@@ -161,6 +172,8 @@ struct TasksDetailsView: View {
             }
             .onAppear(){
                 stateManager.parentTask = task
+                stateManager.activeProject = task.project!
+//                print("on appear active project \(stateManager.activeProject?.projName)")
                 if task.subTask.isEmpty {
                     startTimer()
                     workTime.running = task.taskIsCompleted ? false : true
@@ -195,4 +208,5 @@ struct TasksDetailsView: View {
 
 #Preview {
     return TasksDetailsView(task: (Project.sampleProjects[0].tasks[0]))
+        .environmentObject(StateManager())
 }
