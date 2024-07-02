@@ -43,7 +43,7 @@ struct TasksListView: View {
                 NavigationLink(value: task){
                     TaskCardView(task: task)
                         .swipeActions(edge: .leading, allowsFullSwipe: false){
-                            Button {
+                            Button {    // swipe action Complete <> Incomplete
                                 task.taskIsCompleted.toggle()
                                 activeProject.updateStats()
                             } label: {
@@ -51,9 +51,9 @@ struct TasksListView: View {
                             }
                             .tint(.green)
                             
-                            Button {
+                            Button { // swipe action -> to add to task 4 Today list
                                 let taskId = task.id
-                                let fetchDescriptor = FetchDescriptor<ForToday>(predicate: #Predicate{$0.task.id == taskId}
+                                let fetchDescriptor = FetchDescriptor<ForToday>(predicate: #Predicate{$0.task?.id == taskId}
                                 )
                                 do {
                                     let ile = try modelContex.fetchCount(fetchDescriptor)

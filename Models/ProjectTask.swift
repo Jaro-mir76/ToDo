@@ -45,8 +45,9 @@ class ProjectTask {
     @Relationship(deleteRule: .cascade, inverse: \TaskNote.task) var notes: [TaskNote]
     var tasksCount: Int
     var tasksCompleted: Int
+    @Relationship(deleteRule: .cascade, inverse: \ForToday.task) var forToday: ForToday?
     
-    init(id: UUID = UUID(), project: Project? = nil, isCompleted: Bool, name: String, description: String, priority: Priority, estimatedImplTimeMinutes: Int, realImplTimeMinutes: Int, creationDate: Date, dueDate: Date, subTask: [ProjectTask] = [], subTaskUnfold: Bool, notes: [TaskNote] = []) {
+    init(id: UUID = UUID(), project: Project? = nil, isCompleted: Bool, name: String, description: String, priority: Priority, estimatedImplTimeMinutes: Int, realImplTimeMinutes: Int, creationDate: Date, dueDate: Date, subTask: [ProjectTask] = [], subTaskUnfold: Bool, notes: [TaskNote] = [], forToday: ForToday? = nil) {
         self.id = id
         self.project = project
         self.taskIsCompleted = false
@@ -62,6 +63,7 @@ class ProjectTask {
         self.notes = notes
         self.tasksCount = 0
         self.tasksCompleted = 0
+        self.forToday = forToday
         updateStats()
     }
     
