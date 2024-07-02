@@ -20,6 +20,7 @@ struct TasksDetailsView: View {
     @EnvironmentObject var stateManager: StateManager
     
     var body: some View {
+            
             HStack{
                 if !task.subTask.isEmpty {
                     SubTasksStatus(task: task)
@@ -30,15 +31,6 @@ struct TasksDetailsView: View {
                     .font(.title2)
                     .fontWeight(.bold)
                 Spacer()
-                Button {
-                    stateManager.selectedTab = 1
-                    stateManager.navigationPath = NavigationPath()
-                    stateManager.navigationPathTab2 = NavigationPath()
-                    stateManager.navigationPath.append(task.project!)
-                }
-                label: {
-                Text ("Go to Project")
-                }
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
             .lineLimit(1)
@@ -111,9 +103,22 @@ struct TasksDetailsView: View {
             }
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             .toolbar{
-                Button("Edit"){
-                    task.copyTask(to: editingTask)
-                    isPresentingEdit = true
+                ToolbarItem(placement: .principal){
+                    Button {
+                        stateManager.selectedTab = 1
+                        stateManager.navigationPath = NavigationPath()
+                        stateManager.navigationPathTab2 = NavigationPath()
+                        stateManager.navigationPath.append(task.project!)
+                    }
+                    label: {
+                        Text (task.project!.projName)
+                    }
+                }
+                ToolbarItem(placement: .confirmationAction){
+                    Button("Edit"){
+                        task.copyTask(to: editingTask)
+                        isPresentingEdit = true
+                    }
                 }
             }
             .sheet(isPresented: $isPresentingEdit){

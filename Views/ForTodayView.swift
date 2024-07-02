@@ -22,43 +22,45 @@ struct ForTodayView: View {
                             }
                 ){
                     ForEach(forToday){task4today in
-                        let projectColor = task4today.task!.project!.theme.mainColor
-                        NavigationLink(value: task4today.task){
-                            HStack{
-                                VStack(alignment: .leading){
-                                    Text(task4today.task!.taskName)
-                                    Spacer()
-                                    Text(task4today.task!.project!.projName)
-                                        .font(.footnote)
-                               }
-                            }
-                        }
-                        .navigationDestination(for: ProjectTask.self){ pTask in
-                            TasksDetailsView(task: pTask)
-                        }
-                        .listRowBackground(projectColor)
-//                        VStack(alignment: .leading){ // this section is to switch tab and display task
-//                            Button {
-//                                let task = task4today.task
-//                                stateManager.selectedTab = 1
-//                                stateManager.navigationPath = NavigationPath()
-//                                stateManager.navigationPath.append(task!)
-//                            }
-//                            label: {
-//                                Text("\(task4today.task!.taskName)")
-//                                Spacer()
-//                                Text("\(task4today.task!.project!.projName)")
-//                                    .font(.footnote)
-//                            }
-//                        }
-                        
-                        .swipeActions(edge: .trailing, allowsFullSwipe: false){
-                            Button(role: .destructive) {
-                                if let context = task4today.modelContext {
-                                    context.delete(task4today)
+                        if let projectColor = task4today.task?.project!.theme.mainColor {
+                            @Bindable var task = task4today.task!
+                            NavigationLink(value: task4today.task){
+                                HStack{
+                                    VStack(alignment: .leading){
+                                        HStack{
+                                            if !task.subTask.isEmpty {
+                                                SubTasksStatus(task: task)
+                                            } else {
+                                                TaskStatusButton(isCompleted: $task.taskIsCompleted)
+                                            }
+                                            Text(task.taskName)
+                                                .font(.headline)
+                                                .fontWeight(.bold)
+                                            Spacer()
+                                        }
+                                        Spacer()
+                                        HStack{
+                                            Text("Project")
+                                                .font(.caption2)
+                                            Text(task4today.task!.project!.projName)
+                                                .font(.callout)
+                                            Spacer()
+                                        }
+                                    }
                                 }
-                            } label: {
-                                Label("Delete", systemImage: "trash.fill")
+                            }
+                            .navigationDestination(for: ProjectTask.self){ pTask in
+                                TasksDetailsView(task: pTask)
+                            }
+                            .listRowBackground(projectColor)
+                            .swipeActions(edge: .trailing, allowsFullSwipe: false){
+                                Button(role: .destructive) {
+                                    if let context = task4today.modelContext {
+                                        context.delete(task4today)
+                                    }
+                                } label: {
+                                    Label("Delete", systemImage: "trash.fill")
+                                }
                             }
                         }
                     }
