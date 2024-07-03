@@ -34,18 +34,27 @@ struct TaskCardView: View {
                         }
                     }
                     HStack {
-                        Label("", systemImage: "figure.walk.motion")
-                        Text(task.priority.rawValue)
+                        VStack(alignment: .leading){
+                            HStack {
+                                Label("", systemImage: "figure.walk.motion")
+                                Text(task.priority.rawValue)
+                            }
+                            HStack {
+                                Label("", systemImage: "stopwatch")
+                                TimeDurationView(duration: task.realImplTimeMinutes)
+                            }
+                        }
                         Spacer()
-                        Label("", systemImage: "calendar")
-                        Text(task.dueDate.formatted(date: .numeric, time: .omitted))
-                    }
-                    HStack {
-                        Label("", systemImage: "stopwatch")
-                        TimeDurationView(duration: task.realImplTimeMinutes)
-                        Spacer()
-                        Label("", systemImage: "flag.checkered")
-                        Text(task.estimatedImplTimeString)
+                        VStack (alignment: .leading) {
+                            HStack {
+                                Label("", systemImage: "calendar")
+                                Text(task.dueDate.formatted(date: .numeric, time: .omitted))
+                            }
+                            HStack {
+                                Label("", systemImage: "flag.checkered")
+                                Text(task.estimatedImplTimeString)
+                            }
+                        }
                     }
                 }
             }

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ProjectEditView: View {
     @Binding var project: Project
-//    @State private var showDatePicker = false
     
     var body: some View {
         Form{

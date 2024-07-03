@@ -20,7 +20,7 @@ struct ProjectDetailsView: View {
             List{
                 Section(header: Text("Project info").foregroundColor(.black)){
                     VStack(alignment: .leading ){
-                        HStack(alignment: .firstTextBaseline){
+                        HStack(alignment: .center){
                             Label("", systemImage: "list.clipboard")
                             Text(project.projDescription)
                         }

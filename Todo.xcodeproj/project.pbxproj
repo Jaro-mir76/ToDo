@@ -46,8 +46,6 @@
 		4A7149C22C223F880025FE78 /* ForToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149C12C223F880025FE78 /* ForToday.swift */; };
 		4A7149C42C2CA6E30025FE78 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149C32C2CA6E30025FE78 /* StateManager.swift */; };
 		4A7149C62C2CD8DF0025FE78 /* ProjectTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149C52C2CD8DF0025FE78 /* ProjectTestView.swift */; };
-		4A7149C82C30B1840025FE78 /* ProjView_tmp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149C72C30B1840025FE78 /* ProjView_tmp.swift */; };
-		4A7149CA2C31D5880025FE78 /* ProjView_tmp_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149C92C31D5880025FE78 /* ProjView_tmp_2.swift */; };
 		4ADD9F2E2C0CE07300040ACE /* PriorityEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F2D2C0CE07300040ACE /* PriorityEditView.swift */; };
 		4ADD9F302C0CE28B00040ACE /* ThemeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F2F2C0CE28B00040ACE /* ThemeEditView.swift */; };
 		4ADD9F322C0CE35F00040ACE /* DuedateEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F312C0CE35F00040ACE /* DuedateEditView.swift */; };
@@ -97,8 +95,6 @@
 		4A7149C12C223F880025FE78 /* ForToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForToday.swift; sourceTree = "<group>"; };
 		4A7149C32C2CA6E30025FE78 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		4A7149C52C2CD8DF0025FE78 /* ProjectTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTestView.swift; sourceTree = "<group>"; };
-		4A7149C72C30B1840025FE78 /* ProjView_tmp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjView_tmp.swift; sourceTree = "<group>"; };
-		4A7149C92C31D5880025FE78 /* ProjView_tmp_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjView_tmp_2.swift; sourceTree = "<group>"; };
 		4ADD9F2D2C0CE07300040ACE /* PriorityEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityEditView.swift; sourceTree = "<group>"; };
 		4ADD9F2F2C0CE28B00040ACE /* ThemeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEditView.swift; sourceTree = "<group>"; };
 		4ADD9F312C0CE35F00040ACE /* DuedateEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuedateEditView.swift; sourceTree = "<group>"; };
@@ -170,8 +166,6 @@
 				4ADD9F2F2C0CE28B00040ACE /* ThemeEditView.swift */,
 				4A6F367C2BD57D5B00A41477 /* ProjectCardView.swift */,
 				4A6F367D2BD57D5B00A41477 /* ProjectDetailsView.swift */,
-				4A7149C72C30B1840025FE78 /* ProjView_tmp.swift */,
-				4A7149C92C31D5880025FE78 /* ProjView_tmp_2.swift */,
 				4A7149C52C2CD8DF0025FE78 /* ProjectTestView.swift */,
 				4A6F367E2BD57D5B00A41477 /* ProjectEditView.swift */,
 				4ADD9F2D2C0CE07300040ACE /* PriorityEditView.swift */,
@@ -298,12 +292,10 @@
 				4A6F36932BD57D5B00A41477 /* PreviewSampleData.swift in Sources */,
 				4A6F36962BD57D5B00A41477 /* ProjectTask.swift in Sources */,
 				4A6F36AC2BD57D5B00A41477 /* ThemeViewer.swift in Sources */,
-				4A7149C82C30B1840025FE78 /* ProjView_tmp.swift in Sources */,
 				4A6F36A32BD57D5B00A41477 /* ProjectEditView.swift in Sources */,
 				4A6F36902BD57D5B00A41477 /* Note.swift in Sources */,
 				4A7149C22C223F880025FE78 /* ForToday.swift in Sources */,
 				4A6F36982BD57D5B00A41477 /* TaskNote.swift in Sources */,
-				4A7149CA2C31D5880025FE78 /* ProjView_tmp_2.swift in Sources */,
 				4A6F36A52BD57D5B00A41477 /* SubListUnfold.swift in Sources */,
 				4A6F36A42BD57D5B00A41477 /* ProjectsView.swift in Sources */,
 				4ADD9F342C0CE69B00040ACE /* TaskDuration.swift in Sources */,

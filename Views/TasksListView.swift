@@ -58,20 +58,12 @@ struct TasksListView: View {
                                 do {
                                     let ile = try modelContex.fetchCount(fetchDescriptor)
                                     if ile == 0 {
-//                                        let task = task
-//                                        let projName = activeProject.projName   // because of unknow reason I couldn't use "activeProject.projName" to pass project name as argument below
-                                        
-//                                        @State var newTask4Today = ForToday(today: Date(), taskId: task.id, taskName: task.taskName, projName: projName)
                                         @State var newTask4Today = ForToday(today: Date(), task: task)
                                         modelContex.insert(newTask4Today)
                                     }
-                                    print("how many times is it there: \(ile)")
-//                                }
                                 } catch {
                                     print("Upss, we have some problem with counting tasks on ForToday list")
                                 }
-                                
-                                
                             } label: {
                                 Label("For today", systemImage:  "note.text.badge.plus")
                             }
@@ -89,9 +81,6 @@ struct TasksListView: View {
                             }
                         }
                 }
-//                .navigationDestination(for: ProjectTask.self){task in
-//                    TasksDetailsView(task: task)
-//                }
             case false:
                 @Bindable var task = task
                 HStack {
@@ -102,9 +91,6 @@ struct TasksListView: View {
                     }
                     
                 }
-//                .navigationDestination(for: ProjectTask.self){task in
-//                    TasksDetailsView(task: task)
-//                }
                 if task.subTaskUnfold {
                     TasksListView(activeProject: activeProject, parentTask: task)
                     .padding(.leading, 30)

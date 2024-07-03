@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct TasksDetailsView: View {
-//    var activeProject: Project
-//    var parentTask: ProjectTask?
     @Bindable var task: ProjectTask
     @State private var editingTask = ProjectTask.emptyTask
     @State private var isPresentingEdit = false
@@ -37,21 +35,33 @@ struct TasksDetailsView: View {
             List{
                 Section(header: Text("Task details")){
                     VStack(alignment: .leading){
-                        Text(task.taskDescryption)
-                        HStack{
-                            Label("", systemImage: "figure.walk.motion")
-                            Text(task.priority.rawValue)
-                            Spacer()
-                            Label("", systemImage: "calendar")
-                            Text(task.dueDate.formatted(date: .numeric, time: .omitted))
-                                .font(.callout)
+                        HStack(alignment: .center){
+                            Label("", systemImage: "list.clipboard")
+                            Text(task.taskDescryption)
                         }
-                        HStack{
-                            Label("", systemImage: "stopwatch")
-                            TimeDurationView(duration: workTime.workingTime)
+                        HStack {
+                            VStack(alignment: .leading){
+                                HStack {
+                                    Label("", systemImage: "figure.walk.motion")
+                                    Text(task.priority.rawValue)
+                                }
+                                HStack {
+                                    Label("", systemImage: "stopwatch")
+                                    TimeDurationView(duration: workTime.workingTime)
+                                }
+                            }
                             Spacer()
-                            Label("", systemImage: "flag.checkered")
-                            Text(task.estimatedImplTimeString)
+                            VStack (alignment: .leading) {
+                                HStack {
+                                    Label("", systemImage: "calendar")
+                                    Text(task.dueDate.formatted(date: .numeric, time: .omitted))
+                                        .font(.callout)
+                                }
+                                HStack {
+                                    Label("", systemImage: "flag.checkered")
+                                    Text(task.estimatedImplTimeString)
+                                }
+                            }
                         }
                     }
                 }
@@ -91,9 +101,6 @@ struct TasksDetailsView: View {
                     }
                 ){
                     if !task.subTask.isEmpty {
-//                        let _ = {stateManager.activeProject = task.project!}()
-//                        let _ = print("task name \(task.taskName)")
-//                        let _ = print("active project from taks \(task.project?.projName)")
                         TasksListView(activeProject: task.project!, parentTask: task)
                     } else {
                         Text("There are no subtasks, so lets plan something 🤓")
@@ -178,7 +185,6 @@ struct TasksDetailsView: View {
             .onAppear(){
                 stateManager.parentTask = task
                 stateManager.activeProject = task.project!
-//                print("on appear active project \(stateManager.activeProject?.projName)")
                 if task.subTask.isEmpty {
                     startTimer()
                     workTime.running = task.taskIsCompleted ? false : true
