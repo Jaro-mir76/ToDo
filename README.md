@@ -11,5 +11,5 @@ Here you have update regarding progress of development and features so far imple
 - SwiftUI used for user interface including features like wheel/menu picker, swipe functions, etc. to ensure consisten user experience accross Apple ecosystem,
 - SwiftDate used for saving data to the file.
 
-![image](https://github.com/Jaro-mir76/ToDo/assets/164806332/de89f355-9ab4-4487-8a6e-ac3090e73e4d)
+<img width="1221" alt="Screens" src="https://github.com/Jaro-mir76/ToDo/assets/164806332/38325ab1-841d-4b77-972f-e9cc86450cab">
 
