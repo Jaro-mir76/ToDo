@@ -24,7 +24,8 @@ struct ForTodayView: View {
                     ForEach(forToday){task4today in
                         if let projectColor = task4today.task?.project!.theme.mainColor {
                             @Bindable var task = task4today.task!
-                            NavigationLink(value: task4today.task){
+//                            NavigationLink(value: task4today.task){
+                            NavigationLink(value: task){
                                 HStack{
                                     VStack(alignment: .leading){
                                         HStack{
@@ -56,9 +57,7 @@ struct ForTodayView: View {
                                     }
                                 }
                             }
-                            .navigationDestination(for: ProjectTask.self){ pTask in
-                                TasksDetailsView(task: pTask)
-                            }
+                            
                             .listRowBackground(projectColor)
                             .swipeActions(edge: .trailing, allowsFullSwipe: false){
                                 Button(role: .destructive) {
@@ -73,11 +72,16 @@ struct ForTodayView: View {
                     }
                 }
             }
+            .navigationDestination(for: ProjectTask.self){ pTask in
+//                                stateManager.selectedTab = 1
+                TasksDetailsView(task: pTask)
+            }
         }
     }
 }
 
-#Preview {
+#Preview(traits: .modelContainerSampleData) {
+    @Previewable @Query var forToday: [ForToday]
     ForTodayView()
         .environmentObject(StateManager())
 }

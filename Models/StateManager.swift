@@ -12,6 +12,7 @@ class StateManager: ObservableObject {
     
     @Published var navigationPath = NavigationPath()        // Navigation across app
     @Published var navigationPathTab2 = NavigationPath()
+    
     @Published var selectedTab: Int = 1                 // Control over selected tab
     
     @Published var isPresentingNewProjectView = false   // Used to show new project creation View

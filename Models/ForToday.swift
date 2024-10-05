@@ -22,6 +22,11 @@ class ForToday {
     
     @MainActor
     func insertExamplesIntoContext (in context: ModelContainer){
-        context.mainContext.insert(ForToday(today: Date()))
+        context.mainContext.insert(ForToday(today: Date(), task: ProjectTask(project: Project.sampleProjects[0], isCompleted: true, name: "TASK ONE", description: "Task one - description", priority: .critical, estimatedImplTimeMinutes: 10, realImplTimeMinutes: 0, creationDate: Date(), dueDate: Date(), subTaskUnfold: false)))
+        context.mainContext.insert(ForToday(today: Date(), task: ProjectTask(project: Project.sampleProjects[1], isCompleted: true, name: "TASK TWO", description: "Task two - description", priority: .critical, estimatedImplTimeMinutes: 10, realImplTimeMinutes: 0, creationDate: Date(), dueDate: Date(), subTaskUnfold: false)))
     }
 }
+
+
+
+
