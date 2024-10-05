@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ProjectEditView: View {
     @Binding var project: Project
@@ -19,13 +20,13 @@ struct ProjectEditView: View {
                         .lineLimit(5...10)
                 }
             }
-            PriorityEditView(priority: $project.priority)
-            ThemeEditView(theme: $project.theme)
+            PriorityPicker(selection: $project.priority)
+            ThemePicker(selection: $project.theme)
             DuedateEditView(dueDate: $project.dueDate)
         }
     }
 }
 
-#Preview {
-    return ProjectEditView(project: .constant(Project.sampleProjects[0]))
+#Preview(traits: .modelContainerSampleData) {
+    ProjectEditView(project: .constant(Project.sampleProjects[0]))
 }

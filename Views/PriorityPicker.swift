@@ -11,13 +11,22 @@ struct PriorityPicker: View {
     @Binding var selection: Priority
 
         var body: some View {
-            Picker("", selection: $selection) {
-                ForEach(Priority.allCases) { priority in
-                    PriorityView(priority: priority)
-                        .tag(priority)
+            HStack{
+                Text("Priority")
+                    .font(.footnote)
+                    .textCase(.uppercase)
+                    .foregroundColor(.gray)
+                Spacer()
+                Picker("", selection: $selection) {
+                    ForEach(Priority.allCases) { priority in
+                        PriorityView(priority: priority)
+                            .tag(priority)
+                    }
                 }
+                .pickerStyle(.menu)
+//                PriorityPicker(selection: $priority)
             }
-            .pickerStyle(.menu)
+            
         }
     }
 

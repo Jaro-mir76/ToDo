@@ -38,13 +38,20 @@ struct ForTodayView: View {
                                                 .fontWeight(.bold)
                                             Spacer()
                                         }
-                                        Spacer()
+//                                        Spacer()
                                         HStack{
                                             Text("Project")
                                                 .font(.caption2)
                                             Text(task4today.task!.project!.projName)
                                                 .font(.callout)
                                             Spacer()
+                                        }
+                                        HStack {
+                                            Label("", systemImage: "figure.walk.motion")
+                                            Text(task.priority.rawValue)
+                                            Spacer()
+                                            Label("", systemImage: "flag.checkered")
+                                            Text(task.estimatedImplTimeString)
                                         }
                                     }
                                 }
@@ -72,4 +79,5 @@ struct ForTodayView: View {
 
 #Preview {
     ForTodayView()
+        .environmentObject(StateManager())
 }

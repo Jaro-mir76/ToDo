@@ -55,6 +55,6 @@ struct TaskDurationPicker: View {
     }
 }
 
-#Preview {
-    return TaskDurationPicker(task: .constant(Project.sampleProjects[0].tasks[0]))
+#Preview(traits: .modelContainerSampleData) {
+    TaskDurationPicker(task: .constant(Project.sampleProjects[0].tasks[0]))
 }

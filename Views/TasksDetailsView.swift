@@ -217,7 +217,7 @@ struct TasksDetailsView: View {
     }
 }
 
-#Preview {
+#Preview(traits: .modelContainerSampleData) {
     return TasksDetailsView(task: (Project.sampleProjects[0].tasks[0]))
         .environmentObject(StateManager())
 }

@@ -31,8 +31,7 @@ struct ProjectCardView: View {
         
 }
 
-#Preview {
-    let projectCardPreview = ProjectCardView(project: Project.sampleProjects[0])
+#Preview(traits: .modelContainerSampleData) {
+    ProjectCardView(project: Project.sampleProjects[0])
         .background(.green)
-    return projectCardPreview
 }

@@ -9,20 +9,40 @@ import SwiftUI
 
 struct ThemePicker: View {
     @Binding var selection: Theme
+    @State private var showThemeWheel: Bool = false
     
     var body: some View {
-        Picker("", selection: $selection) {
-            ForEach(Theme.allCases) { theme in
-                ThemeView(theme: theme)
-                    .tag(theme)
-            }
+        HStack {
+            Text("Theme")
+                .font(.footnote)
+                .textCase(.uppercase)
+                .foregroundColor(.gray)
+            Spacer()
+            Text(selection.name)
+                .padding(4)
+                .frame(maxWidth: .infinity)
+                .background(selection.mainColor)
+//                .foregroundColor(selection.accentColor)
+                .clipShape(RoundedRectangle(cornerRadius: 4))
+                .foregroundStyle(showThemeWheel ? .red : selection.accentColor)
+                .onTapGesture {
+                    withAnimation{
+                        showThemeWheel.toggle()
+                    }
+                }
         }
-        .pickerStyle(.navigationLink)
+        if showThemeWheel {
+            Picker("", selection: $selection) {
+                ForEach(Theme.allCases) { theme in
+                    ThemeView(theme: theme)
+                        .tag(theme)
+                }
+            }
+            .pickerStyle(.wheel)
+        }
     }
 }
 
-struct ThemePicker_Previews: PreviewProvider {
-    static var previews: some View {
-        ThemePicker(selection: .constant(.blue))
-    }
+#Preview {
+    ThemePicker(selection: .constant(.indigo))
 }

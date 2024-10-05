@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 class Project {
-    @Attribute(.unique) let id: UUID
+    @Attribute(.unique) var id: UUID
     var projName: String
     var projDescription: String
     var priority: Priority
@@ -21,7 +21,7 @@ class Project {
     var tasksCount: Int
     var tasksCompleted: Int
     
-    init(id: UUID = UUID(), projName: String, projDescription: String, priority: Priority, dueDate: Date, isCompleted: isCompleted, tasks: [ProjectTask] = [], theme: Theme) {
+    init(id: UUID = UUID(), projName: String = "", projDescription: String = "", priority: Priority, dueDate: Date, isCompleted: isCompleted, tasks: [ProjectTask] = [], theme: Theme) {
         self.id = id
         self.projName = projName
         self.projDescription = projDescription
@@ -66,6 +66,13 @@ class Project {
         to.theme = theme
 //        to.tasks = tasks          =---> why copy of tasks cause that during editing of project copy of project is added to projects
     }
+    
+    @MainActor
+    func insertExamplesIntoContext (in context: ModelContainer){
+        context.mainContext.insert(Project.sampleProjects[0])
+        context.mainContext.insert(Project.sampleProjects[1])
+    }
+    
 }
 
 extension Project {
@@ -97,11 +104,65 @@ extension Project {
                                                ),
                                         TaskNote(note: "...slowely going there",
                                                 author: Person(name: "Adam")
+                                               ),
+                                        TaskNote(note: "hmmm.....",
+                                                author: Person(name: "Adam")
+                                               ),
+                                        TaskNote(note: ":-D",
+                                                author: Person(name: "Adam")
                                                )
                                 ]
+                            
+                            ),
+                ProjectTask(isCompleted: false,
+                            name: "Learn by doing",
+                            description: "Find a good idea for a project and do it",
+                            priority: .critical,
+                            estimatedImplTimeMinutes: 200,
+                            realImplTimeMinutes: 0,
+                            creationDate: Date(timeIntervalSinceNow: 0),
+                            dueDate: Date(timeIntervalSinceNow: 0),
+                            //isSubtask: false,
+                            subTask: [],
+                            subTaskUnfold: false,
+                            notes: [ TaskNote(note: "...still thinking",
+                                        author: Person(name: "Adam")
+                                        )
+                                ]
+                            
                             )
                 ],
             theme: .blue
+           ),
+        Project(projName: "Shopping",
+            projDescription: "Buy food for lunch.",
+            priority: .high,
+            dueDate: Date(),
+            isCompleted: .notCompleted,
+            tasks: [
+                ProjectTask(isCompleted: false,
+                            name: "Shopping list",
+                            description: "Ask team for recomendations",
+                            priority: .medium,
+                            estimatedImplTimeMinutes: 1200,
+                            realImplTimeMinutes: 0,
+                            creationDate: Date(timeIntervalSinceNow: 0),
+                            dueDate: Date(timeIntervalSinceNow: 0),
+                            //isSubtask: false,
+                            subTask: [],
+                            subTaskUnfold: false,
+                            notes: [
+                                        TaskNote(note: "Don't ask boss",
+                                                author: Person(name: "Adam")
+                                               ),
+                                        TaskNote(note: "...too late",
+                                                author: Person(name: "Adam")
+                                               )
+                                ]
+                            
+                            )
+                ],
+                theme: .yellow
            )
     ]
 }

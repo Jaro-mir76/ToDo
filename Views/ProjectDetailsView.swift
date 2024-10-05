@@ -123,6 +123,8 @@ struct ProjectDetailsView: View {
     }
 }
 
-#Preview {
-    ProjectDetailsView(project: Project.emptyProject)
+#Preview(traits: .modelContainerSampleData) {
+    @Previewable @Query var projects: [Project]
+    ProjectDetailsView(project: projects[0])
+        .environmentObject(StateManager())
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct NotesCardView: View {
     let notes: TaskNote
@@ -15,12 +16,12 @@ struct NotesCardView: View {
             Text(notes.note)
             HStack{
                 Spacer()
-                Text(notes.author.name)
+                Text(notes.author?.name ?? "Anonymous")
             }
         }
     }
 }
 
-#Preview {
-    return NotesCardView(notes: Project.sampleProjects[0].tasks[0].notes[0])
+#Preview(traits: .modelContainerSampleData) {
+    NotesCardView(notes: Project.sampleProjects[0].tasks[0].notes[0])
 }

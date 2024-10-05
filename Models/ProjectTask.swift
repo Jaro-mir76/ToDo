@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 class ProjectTask {
-    @Attribute(.unique) let id: UUID
+    @Attribute(.unique) var id: UUID
     var project: Project?
     var parentTask: ProjectTask?
     var taskIsCompleted: Bool
@@ -106,5 +106,10 @@ class ProjectTask {
     
     static var emptyTask: ProjectTask{
         ProjectTask(isCompleted: false, name: "", description: "", priority: .medium, estimatedImplTimeMinutes: 0, realImplTimeMinutes: 0, creationDate: Date(), dueDate: Date(), subTask: [], subTaskUnfold: false, notes: [])
+    }
+    
+    @MainActor
+    func insertExamplesIntoContext (in context: ModelContainer){
+        context.mainContext.insert(ProjectTask(isCompleted: true, name: "TASK ONE", description: "Task one - description", priority: .critical, estimatedImplTimeMinutes: 10, realImplTimeMinutes: 0, creationDate: Date(), dueDate: Date(), subTaskUnfold: false))
     }
 }

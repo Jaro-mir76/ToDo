@@ -62,6 +62,6 @@ struct TaskCardView: View {
     }
 }
 
-#Preview {
+#Preview(traits: .modelContainerSampleData) {
     return TaskCardView(task: Project.sampleProjects[0].tasks[0], isSubGroup: true)
 }

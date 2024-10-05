@@ -11,7 +11,7 @@ struct TimeDurationView: View {
     var duration: Int
     
     var body: some View {
-        var timeDuration = Duration.seconds(duration)
+        let timeDuration = Duration.seconds(duration)
         switch duration {
         case 0..<3600:
             let formatedDuration = timeDuration.formatted(.time(pattern: .minuteSecond(padMinuteToLength: 2)))

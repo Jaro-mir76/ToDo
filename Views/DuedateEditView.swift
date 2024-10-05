@@ -37,6 +37,6 @@ struct DuedateEditView: View {
     }
 }
 
-#Preview {
-    return DuedateEditView(dueDate: .constant(Date()))
+#Preview(traits: .modelContainerSampleData) {
+    DuedateEditView(dueDate: .constant(Date()))
 }

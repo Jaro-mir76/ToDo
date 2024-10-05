@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-struct ThemeEditView: View {
-    @Binding var theme: Theme
-    
-    var body: some View {
-        HStack{
-            Text("Theme")
-                .font(.footnote)
-                .textCase(.uppercase)
-                .foregroundColor(.gray)
-            Spacer()
-            ThemePicker(selection: $theme)
-        }
-    }
-}
-
-#Preview {
-    return ThemeEditView(theme: .constant(Theme.blue))
-}
+//struct ThemeEditView: View {
+//    @Binding var theme: Theme
+//    
+//    var body: some View {
+////        HStack{
+////            Text("Theme")
+////                .font(.footnote)
+////                .textCase(.uppercase)
+////                .foregroundColor(.gray)
+////            Spacer()
+//            ThemePicker(selection: $theme)
+////        }
+//    }
+//}
+//
+//#Preview {
+//    return ThemeEditView(theme: .constant(Theme.blue))
+//}

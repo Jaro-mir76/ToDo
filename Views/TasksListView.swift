@@ -100,6 +100,8 @@ struct TasksListView: View {
     }
 }
 
-#Preview {
-    TasksListView(activeProject: Project.sampleProjects[0] ,parentTask: ProjectTask.emptyTask)
+#Preview(traits: .modelContainerSampleData) {
+    @Previewable @Query var projects: [Project]
+    TasksListView(activeProject: projects[0] ,parentTask: nil)
+
 }

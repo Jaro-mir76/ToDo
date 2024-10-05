@@ -33,7 +33,6 @@ struct NewProjectView: View {
     }
 }
 
-#Preview {
+#Preview(traits: .modelContainerSampleData) {
     NewProjectView(isPresentingNewProjectView: .constant(true))
-        .modelContainer(previewContainer)
 }

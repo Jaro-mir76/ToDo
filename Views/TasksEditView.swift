@@ -21,7 +21,7 @@ struct TasksEditView: View {
                 }
             }
             Section(){
-                PriorityEditView(priority: $task.priority)
+                PriorityPicker(selection: $task.priority)
                 TaskDurationPicker(task: $task)
                 DuedateEditView(dueDate: $task.dueDate)
             }            
@@ -29,6 +29,6 @@ struct TasksEditView: View {
     }
 }
 
-#Preview {
+#Preview(traits: .modelContainerSampleData) {
     return TasksEditView(task: .constant(Project.sampleProjects[0].tasks[0]))
 }

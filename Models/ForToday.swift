@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 class ForToday {
-    @Attribute(.unique) let id: UUID
+    @Attribute(.unique) var id: UUID
     var today: Date
     var task: ProjectTask?
     
@@ -18,5 +18,10 @@ class ForToday {
         self.id = id
         self.today = today
         self.task = task
+    }
+    
+    @MainActor
+    func insertExamplesIntoContext (in context: ModelContainer){
+        context.mainContext.insert(ForToday(today: Date()))
     }
 }

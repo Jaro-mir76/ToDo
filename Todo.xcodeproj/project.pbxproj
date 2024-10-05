@@ -15,7 +15,6 @@
 		4A6F368F2BD57D5B00A41477 /* isCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36692BD57D5B00A41477 /* isCompleted.swift */; };
 		4A6F36902BD57D5B00A41477 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366A2BD57D5B00A41477 /* Note.swift */; };
 		4A6F36922BD57D5B00A41477 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366C2BD57D5B00A41477 /* Person.swift */; };
-		4A6F36932BD57D5B00A41477 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366D2BD57D5B00A41477 /* PreviewSampleData.swift */; };
 		4A6F36942BD57D5B00A41477 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366E2BD57D5B00A41477 /* Priority.swift */; };
 		4A6F36952BD57D5B00A41477 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366F2BD57D5B00A41477 /* Project.swift */; };
 		4A6F36962BD57D5B00A41477 /* ProjectTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F36702BD57D5B00A41477 /* ProjectTask.swift */; };
@@ -45,7 +44,7 @@
 		4A7149C02C223EF60025FE78 /* ForTodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149BF2C223EF60025FE78 /* ForTodayView.swift */; };
 		4A7149C22C223F880025FE78 /* ForToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149C12C223F880025FE78 /* ForToday.swift */; };
 		4A7149C42C2CA6E30025FE78 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149C32C2CA6E30025FE78 /* StateManager.swift */; };
-		4A7149C62C2CD8DF0025FE78 /* ProjectTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149C52C2CD8DF0025FE78 /* ProjectTestView.swift */; };
+		4A7149CC2C49BDE10025FE78 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366D2BD57D5B00A41477 /* PreviewSampleData.swift */; };
 		4ADD9F2E2C0CE07300040ACE /* PriorityEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F2D2C0CE07300040ACE /* PriorityEditView.swift */; };
 		4ADD9F302C0CE28B00040ACE /* ThemeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F2F2C0CE28B00040ACE /* ThemeEditView.swift */; };
 		4ADD9F322C0CE35F00040ACE /* DuedateEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F312C0CE35F00040ACE /* DuedateEditView.swift */; };
@@ -94,7 +93,6 @@
 		4A7149BF2C223EF60025FE78 /* ForTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForTodayView.swift; sourceTree = "<group>"; };
 		4A7149C12C223F880025FE78 /* ForToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForToday.swift; sourceTree = "<group>"; };
 		4A7149C32C2CA6E30025FE78 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
-		4A7149C52C2CD8DF0025FE78 /* ProjectTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTestView.swift; sourceTree = "<group>"; };
 		4ADD9F2D2C0CE07300040ACE /* PriorityEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityEditView.swift; sourceTree = "<group>"; };
 		4ADD9F2F2C0CE28B00040ACE /* ThemeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEditView.swift; sourceTree = "<group>"; };
 		4ADD9F312C0CE35F00040ACE /* DuedateEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuedateEditView.swift; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 				4ADD9F2F2C0CE28B00040ACE /* ThemeEditView.swift */,
 				4A6F367C2BD57D5B00A41477 /* ProjectCardView.swift */,
 				4A6F367D2BD57D5B00A41477 /* ProjectDetailsView.swift */,
-				4A7149C52C2CD8DF0025FE78 /* ProjectTestView.swift */,
 				4A6F367E2BD57D5B00A41477 /* ProjectEditView.swift */,
 				4ADD9F2D2C0CE07300040ACE /* PriorityEditView.swift */,
 				4A6F367F2BD57D5B00A41477 /* ProjectsView.swift */,
@@ -285,11 +282,11 @@
 				4A6F36AD2BD57D5B00A41477 /* TrailingIconLabelStyle.swift in Sources */,
 				4A3B65F12BF03EAD00BE9EA7 /* TimeDurationView.swift in Sources */,
 				4A6F36942BD57D5B00A41477 /* Priority.swift in Sources */,
+				4A7149CC2C49BDE10025FE78 /* PreviewSampleData.swift in Sources */,
 				4A6F368E2BD57D5B00A41477 /* ErrorWraper.swift in Sources */,
 				4ADD9F2E2C0CE07300040ACE /* PriorityEditView.swift in Sources */,
 				4A6F36A72BD57D5B00A41477 /* TasksDetailsView.swift in Sources */,
 				4A6F36A82BD57D5B00A41477 /* TasksEditView.swift in Sources */,
-				4A6F36932BD57D5B00A41477 /* PreviewSampleData.swift in Sources */,
 				4A6F36962BD57D5B00A41477 /* ProjectTask.swift in Sources */,
 				4A6F36AC2BD57D5B00A41477 /* ThemeViewer.swift in Sources */,
 				4A6F36A32BD57D5B00A41477 /* ProjectEditView.swift in Sources */,
@@ -303,7 +300,6 @@
 				4A7149C42C2CA6E30025FE78 /* StateManager.swift in Sources */,
 				4A6F36AB2BD57D5B00A41477 /* ThemePicker.swift in Sources */,
 				4A6F36AA2BD57D5B00A41477 /* TaskStatusButton.swift in Sources */,
-				4A7149C62C2CD8DF0025FE78 /* ProjectTestView.swift in Sources */,
 				4A6F36A22BD57D5B00A41477 /* ProjectDetailsView.swift in Sources */,
 				4A3B65ED2BE6DD8C00BE9EA7 /* WorkTime.swift in Sources */,
 				4A6F36952BD57D5B00A41477 /* Project.swift in Sources */,
@@ -451,6 +447,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,6 +478,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

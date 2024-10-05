@@ -15,6 +15,6 @@ struct SubTasksStatus: View {
     }
 }
 
-#Preview {
-    return SubTasksStatus(task: ProjectTask.emptyTask)
+#Preview(traits: .modelContainerSampleData) {
+    return SubTasksStatus(task: Project.sampleProjects[0].tasks[0])
 }

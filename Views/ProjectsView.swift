@@ -71,8 +71,7 @@ struct ProjectsView: View {
     }
 }
 
-#Preview {
+#Preview(traits: .modelContainerSampleData) {
     ProjectsView()
-        .modelContainer(previewContainer)
         .environmentObject(StateManager())
 }

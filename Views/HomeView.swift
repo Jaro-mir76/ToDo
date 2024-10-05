@@ -31,6 +31,7 @@ struct HomeView: View {
     }
 }
 
-#Preview {
+#Preview(traits: .modelContainerSampleData) {
     HomeView()
+        .environmentObject(StateManager())
 }
