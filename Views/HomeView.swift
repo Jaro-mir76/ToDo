@@ -10,6 +10,7 @@ import SwiftData
 
 struct HomeView: View {
     @Query private var tasksForToday: [ForToday]
+    @Query private var notes: [Note]
     @EnvironmentObject var stateManager: StateManager
     
     var body: some View {
@@ -19,14 +20,15 @@ struct HomeView: View {
                 .tag(1)
             
             ForTodayView()
-                .tabItem { Label("for Today", systemImage: "checklist")}
+                .tabItem { Label("Today", systemImage: "checklist")}
                 .tag(2)
                 .badge(tasksForToday.count)
             
-            Text("Tab Content 3 but soon you'll find place for making Quick Notes")
+//            Text("Tab Content 3 but soon you'll find place for making Quick Notes")
+            NotesView()
                 .tabItem { Label("quick Note", systemImage: "pencil.and.list.clipboard")}
                 .tag(3)
-                .badge(stateManager.navigationPath.count)
+                .badge(notes.count)
         }
     }
 }

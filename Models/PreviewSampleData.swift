@@ -13,7 +13,7 @@ struct ModelContainerSampleData: PreviewModifier {
     static func makeSharedContext() throws -> ModelContainer {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(
-            for: Project.self, ProjectTask.self, TaskNote.self, ForToday.self, Person.self,
+            for: Project.self, ProjectTask.self, TaskNote.self, ForToday.self, Person.self, Note.self,
             configurations: config)
         
         let project = Project(priority: .critical, dueDate: Date(), isCompleted: .completed, theme: .blue)
@@ -30,6 +30,9 @@ struct ModelContainerSampleData: PreviewModifier {
         
         let person = Person(name: "")
         person.insertExamplesIntoContext(in: container)
+        
+        let note = Note(text: "")
+        note.insertExamplesIntoContext(in: container)
         
         return container
     }

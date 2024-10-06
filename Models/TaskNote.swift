@@ -24,6 +24,6 @@ class TaskNote {
     
     @MainActor
     func insertExamplesIntoContext (in context: ModelContainer){
-        context.mainContext.insert(Note(note: "Short note", author: Person(name: "Anonimous")))
+        context.mainContext.insert(TaskNote(note: "Short note", author: Person(name: "Anonimous")))
     }
 }

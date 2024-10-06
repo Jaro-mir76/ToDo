@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A0CF6A52CB192B400222C44 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CF6A42CB192B400222C44 /* NotesView.swift */; };
 		4A1C2ABE2BD45B2100820D46 /* TodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C2ABD2BD45B2100820D46 /* TodoApp.swift */; };
 		4A3B65ED2BE6DD8C00BE9EA7 /* WorkTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B65EC2BE6DD8C00BE9EA7 /* WorkTime.swift */; };
 		4A3B65EF2BE978CC00BE9EA7 /* SubTasksStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B65EE2BE978CC00BE9EA7 /* SubTasksStatus.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A0CF6A42CB192B400222C44 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		4A1C2ABA2BD45B2100820D46 /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1C2ABD2BD45B2100820D46 /* TodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoApp.swift; sourceTree = "<group>"; };
 		4A3B65EC2BE6DD8C00BE9EA7 /* WorkTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTime.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				4A6F367E2BD57D5B00A41477 /* ProjectEditView.swift */,
 				4ADD9F2D2C0CE07300040ACE /* PriorityEditView.swift */,
 				4A6F367F2BD57D5B00A41477 /* ProjectsView.swift */,
+				4A0CF6A42CB192B400222C44 /* NotesView.swift */,
 				4ADD9F312C0CE35F00040ACE /* DuedateEditView.swift */,
 				4A7149B92C1EE8B70025FE78 /* HomeView.swift */,
 				4A6F36802BD57D5B00A41477 /* SubListUnfold.swift */,
@@ -268,6 +271,7 @@
 				4A6F36922BD57D5B00A41477 /* Person.swift in Sources */,
 				4A6F36A02BD57D5B00A41477 /* PriorityView.swift in Sources */,
 				4ADD9F3A2C150AF800040ACE /* TaskDurationPicker.swift in Sources */,
+				4A0CF6A52CB192B400222C44 /* NotesView.swift in Sources */,
 				4A1C2ABE2BD45B2100820D46 /* TodoApp.swift in Sources */,
 				4A6F36B22BD599B800A41477 /* UTTypeToDo.swift in Sources */,
 				4ADD9F302C0CE28B00040ACE /* ThemeEditView.swift in Sources */,

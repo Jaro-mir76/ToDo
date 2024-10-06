@@ -11,17 +11,16 @@ import SwiftData
 @Model
 class Note{
     @Attribute(.unique) var id: UUID
-    var note: String
-    var author: Person
+    var text: String
     
-    init(id: UUID = UUID(), note: String, author: Person) {
+    init(id: UUID = UUID(), text: String) {
         self.id = id
-        self.note = note
-        self.author = author
+        self.text = text
     }
     
     @MainActor
     func insertExamplesIntoContext (in context: ModelContainer){
-        context.mainContext.insert(Note(note: "Short note", author: Person(name: "Anonimous")))
+        context.mainContext.insert(Note(text: "Short note"))
+        context.mainContext.insert(Note(text: "a little bit longer note because I have so much in my head and have to write it down somewhere"))
     }
 }

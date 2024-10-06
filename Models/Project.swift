@@ -162,7 +162,7 @@ extension Project {
                             
                             )
                 ],
-                theme: .yellow
+                theme: .mint
            )
     ]
 }

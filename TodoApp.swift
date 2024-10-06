@@ -13,7 +13,7 @@ struct TodoApp: App {
     
     var body: some Scene {
         #if os(iOS) || os(macOS)
-        DocumentGroup(editing: [Project.self, ProjectTask.self, TaskNote.self, ForToday.self, Person.self], contentType: .todoData){
+        DocumentGroup(editing: [Project.self, ProjectTask.self, TaskNote.self, ForToday.self, Person.self, Note.self], contentType: .todoData){
             HomeView()
                 .environmentObject(stateManager)
         }

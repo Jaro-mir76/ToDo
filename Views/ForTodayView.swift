@@ -15,14 +15,9 @@ struct ForTodayView: View {
     var body: some View {
         NavigationStack(path: $stateManager.navigationPathTab2){
             List {
-                Section(header:
-                            HStack{
-                                Text("Tasks for today")
-                                    .foregroundColor(.black)
-                            }
-                ){
+                Section(){
                     ForEach(forToday){task4today in
-                        if let projectColor = task4today.task?.project!.theme.mainColor {
+                        if let projectColor = task4today.task?.project?.theme.mainColor {
                             @Bindable var task = task4today.task!
 //                            NavigationLink(value: task4today.task){
                             NavigationLink(value: task){
@@ -57,7 +52,6 @@ struct ForTodayView: View {
                                     }
                                 }
                             }
-                            
                             .listRowBackground(projectColor)
                             .swipeActions(edge: .trailing, allowsFullSwipe: false){
                                 Button(role: .destructive) {
@@ -72,8 +66,8 @@ struct ForTodayView: View {
                     }
                 }
             }
+            .navigationTitle("Today")
             .navigationDestination(for: ProjectTask.self){ pTask in
-//                                stateManager.selectedTab = 1
                 TasksDetailsView(task: pTask)
             }
         }

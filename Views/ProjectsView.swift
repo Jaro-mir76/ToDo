@@ -38,7 +38,7 @@ struct ProjectsView: View {
             .navigationDestination(for: ProjectTask.self){task in
                 TasksDetailsView(task: task)
             }
-            .navigationTitle("Project list")
+            .navigationTitle("Projects")
             .toolbar {
                 Button(action: {
                     stateManager.isPresentingNewProjectView = true
