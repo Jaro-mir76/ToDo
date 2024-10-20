@@ -24,9 +24,7 @@ struct PriorityPicker: View {
                     }
                 }
                 .pickerStyle(.menu)
-//                PriorityPicker(selection: $priority)
             }
-            
         }
     }
 

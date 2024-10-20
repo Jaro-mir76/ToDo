@@ -11,7 +11,6 @@ import SwiftData
 struct TasksListView: View {
     var activeProject: Project
     var parentTask: ProjectTask?
-    //@Query
     private var tasks: [ProjectTask]
     @Environment(\.modelContext) private var modelContex
     @EnvironmentObject var stateManager: StateManager
@@ -19,7 +18,7 @@ struct TasksListView: View {
     @Query private var forToday: [ForToday]
     
     init(activeProject: Project, parentTask: ProjectTask?) {
-        //let projectId = activeProject.id      //left to check later @Query etc.
+        //let projectId = activeProject.id      //left to check @Query later
         self.activeProject = activeProject
         //let parentTaskId = parentTask?.id
         self.parentTask = parentTask
@@ -51,7 +50,7 @@ struct TasksListView: View {
                             }
                             .tint(.green)
                             
-                            Button { // swipe action -> to add to task 4 Today list
+                            Button { // swipe action -> to add to task 2 Today list
                                 let taskId = task.id
                                 let fetchDescriptor = FetchDescriptor<ForToday>(predicate: #Predicate{$0.task?.id == taskId}
                                 )

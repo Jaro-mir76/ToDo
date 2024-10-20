@@ -26,7 +26,3 @@ class ForToday {
         context.mainContext.insert(ForToday(today: Date(), task: ProjectTask(project: Project.sampleProjects[1], isCompleted: true, name: "TASK TWO", description: "Task two - description", priority: .critical, estimatedImplTimeMinutes: 10, realImplTimeMinutes: 0, creationDate: Date(), dueDate: Date(), subTaskUnfold: false)))
     }
 }
-
-
-
-

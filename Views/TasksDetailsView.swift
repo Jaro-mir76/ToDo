@@ -113,7 +113,6 @@ struct TasksDetailsView: View {
                 ToolbarItem(placement: .principal){
                     Button {
                         stateManager.navigationPath = NavigationPath()
-//                        stateManager.navigationPathTab2 = NavigationPath()
                         stateManager.navigationPath.append(task.project!)
                         stateManager.selectedTab = 1
                     }

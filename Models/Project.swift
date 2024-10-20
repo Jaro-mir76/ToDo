@@ -81,7 +81,7 @@ extension Project {
     }
     
     static let sampleProjects: [Project] = [
-        Project(projName: "Project ToDo app",
+        Project(projName: "Project management app",
             projDescription: "Creation of application for tasks management.",
             priority: .high,
             dueDate: Date(),

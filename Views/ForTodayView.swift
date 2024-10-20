@@ -19,7 +19,6 @@ struct ForTodayView: View {
                     ForEach(forToday){task4today in
                         if let projectColor = task4today.task?.project?.theme.mainColor {
                             @Bindable var task = task4today.task!
-//                            NavigationLink(value: task4today.task){
                             NavigationLink(value: task){
                                 HStack{
                                     VStack(alignment: .leading){

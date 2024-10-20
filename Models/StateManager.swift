@@ -21,5 +21,10 @@ class StateManager: ObservableObject {
     
     @Published var activeProject: Project?
     
-    @Published var isPresentingNewTask = false  // used to show task creation view
+    @Published var isPresentingNewTask = false  // used to show task creation view (in project/task view)
+    
+    @Published var isPresentingNote2ProjectPhase1 = false // used for transforming Quick Note to new task - phase 1 - choose project/sub task
+    @Published var isPresentingNote2ProjectPhase2 = false // used for transforming Quick Note to new task - phase 2 - modify new task before saving
+    
+    @Published var note2Transfer: Note?
 }

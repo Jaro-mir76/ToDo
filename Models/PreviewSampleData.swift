@@ -46,22 +46,3 @@ extension PreviewTrait where T == Preview.ViewTraits {
     @available(iOS 18.0, *)
     @MainActor static var modelContainerSampleData: Self = .modifier(ModelContainerSampleData())
 }
-
-//struct StateManagerSampleData: PreviewModifier {
-//    static func makeSharedContext() async throws -> any ObservableObject {
-//        let stateManager = StateManager()
-//        
-//        return stateManager
-//    }
-
-//    --->>> Function body was complaining that something is wrong, will investigate later
-
-//    func body(content: Content, context: any ObservableObject) -> some View {
-//        content.environmentObject(context)
-//    }
-//}
-//
-//extension PreviewTrait where T == Preview.ViewTraits {
-//    @available(iOS 18.0, *)
-//    @MainActor static var stateManagerSampleData: Self = .modifier(StateManagerSampleData())
-//}

@@ -19,7 +19,6 @@ struct TaskDurationPicker: View {
                 .foregroundColor(.gray)
             Spacer()
             Text ("\(task.estimatedImplTimeHours < 10 ? "0": "")\(task.estimatedImplTimeHours):\(task.estimatedImplTimeMinutes < 10 ? "0": "" )\(task.estimatedImplTimeMinutes)")
-//                .background(.yellow, in: .buttonBorder, fillStyle: .init())
                 .foregroundStyle(showTimeWheel ? .red : .black)
                 .onTapGesture {
                     withAnimation{

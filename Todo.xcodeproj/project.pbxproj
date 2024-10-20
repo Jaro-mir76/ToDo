@@ -46,8 +46,7 @@
 		4A7149C22C223F880025FE78 /* ForToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149C12C223F880025FE78 /* ForToday.swift */; };
 		4A7149C42C2CA6E30025FE78 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7149C32C2CA6E30025FE78 /* StateManager.swift */; };
 		4A7149CC2C49BDE10025FE78 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6F366D2BD57D5B00A41477 /* PreviewSampleData.swift */; };
-		4ADD9F2E2C0CE07300040ACE /* PriorityEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F2D2C0CE07300040ACE /* PriorityEditView.swift */; };
-		4ADD9F302C0CE28B00040ACE /* ThemeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F2F2C0CE28B00040ACE /* ThemeEditView.swift */; };
+		4A8D02BA2CB2C1BD0013C88B /* ProjectTaskSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D02B92CB2C1BD0013C88B /* ProjectTaskSelectionView.swift */; };
 		4ADD9F322C0CE35F00040ACE /* DuedateEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F312C0CE35F00040ACE /* DuedateEditView.swift */; };
 		4ADD9F342C0CE69B00040ACE /* TaskDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F332C0CE69B00040ACE /* TaskDuration.swift */; };
 		4ADD9F3A2C150AF800040ACE /* TaskDurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD9F392C150AF800040ACE /* TaskDurationPicker.swift */; };
@@ -95,8 +94,7 @@
 		4A7149BF2C223EF60025FE78 /* ForTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForTodayView.swift; sourceTree = "<group>"; };
 		4A7149C12C223F880025FE78 /* ForToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForToday.swift; sourceTree = "<group>"; };
 		4A7149C32C2CA6E30025FE78 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
-		4ADD9F2D2C0CE07300040ACE /* PriorityEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityEditView.swift; sourceTree = "<group>"; };
-		4ADD9F2F2C0CE28B00040ACE /* ThemeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEditView.swift; sourceTree = "<group>"; };
+		4A8D02B92CB2C1BD0013C88B /* ProjectTaskSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTaskSelectionView.swift; sourceTree = "<group>"; };
 		4ADD9F312C0CE35F00040ACE /* DuedateEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuedateEditView.swift; sourceTree = "<group>"; };
 		4ADD9F332C0CE69B00040ACE /* TaskDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDuration.swift; sourceTree = "<group>"; };
 		4ADD9F392C150AF800040ACE /* TaskDurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDurationPicker.swift; sourceTree = "<group>"; };
@@ -163,11 +161,10 @@
 				4A6F36792BD57D5B00A41477 /* NotesCardView.swift */,
 				4A6F367A2BD57D5B00A41477 /* PriorityPicker.swift */,
 				4A6F367B2BD57D5B00A41477 /* PriorityView.swift */,
-				4ADD9F2F2C0CE28B00040ACE /* ThemeEditView.swift */,
 				4A6F367C2BD57D5B00A41477 /* ProjectCardView.swift */,
 				4A6F367D2BD57D5B00A41477 /* ProjectDetailsView.swift */,
+				4A8D02B92CB2C1BD0013C88B /* ProjectTaskSelectionView.swift */,
 				4A6F367E2BD57D5B00A41477 /* ProjectEditView.swift */,
-				4ADD9F2D2C0CE07300040ACE /* PriorityEditView.swift */,
 				4A6F367F2BD57D5B00A41477 /* ProjectsView.swift */,
 				4A0CF6A42CB192B400222C44 /* NotesView.swift */,
 				4ADD9F312C0CE35F00040ACE /* DuedateEditView.swift */,
@@ -266,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A6F369E2BD57D5B00A41477 /* NotesCardView.swift in Sources */,
+				4A8D02BA2CB2C1BD0013C88B /* ProjectTaskSelectionView.swift in Sources */,
 				4A7149C02C223EF60025FE78 /* ForTodayView.swift in Sources */,
 				4ADD9F322C0CE35F00040ACE /* DuedateEditView.swift in Sources */,
 				4A6F36922BD57D5B00A41477 /* Person.swift in Sources */,
@@ -274,7 +272,6 @@
 				4A0CF6A52CB192B400222C44 /* NotesView.swift in Sources */,
 				4A1C2ABE2BD45B2100820D46 /* TodoApp.swift in Sources */,
 				4A6F36B22BD599B800A41477 /* UTTypeToDo.swift in Sources */,
-				4ADD9F302C0CE28B00040ACE /* ThemeEditView.swift in Sources */,
 				4A7149B82C1EE5430025FE78 /* Tabs.swift in Sources */,
 				4A6F36A12BD57D5B00A41477 /* ProjectCardView.swift in Sources */,
 				4A6F368F2BD57D5B00A41477 /* isCompleted.swift in Sources */,
@@ -288,7 +285,6 @@
 				4A6F36942BD57D5B00A41477 /* Priority.swift in Sources */,
 				4A7149CC2C49BDE10025FE78 /* PreviewSampleData.swift in Sources */,
 				4A6F368E2BD57D5B00A41477 /* ErrorWraper.swift in Sources */,
-				4ADD9F2E2C0CE07300040ACE /* PriorityEditView.swift in Sources */,
 				4A6F36A72BD57D5B00A41477 /* TasksDetailsView.swift in Sources */,
 				4A6F36A82BD57D5B00A41477 /* TasksEditView.swift in Sources */,
 				4A6F36962BD57D5B00A41477 /* ProjectTask.swift in Sources */,
